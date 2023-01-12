@@ -1,4 +1,8 @@
 
-f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÓπÔ’
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÓπÔ’
+>
+java:S1604"(Make this anonymous inner class a lambda(Ü£∞Ó
 l
-java:S1450"WRemove the "textView" field and declare it as a local variable in the relevant methods.(Ï ı"
+java:S1450"WRemove the "textView" field and declare it as a local variable in the relevant methods.(Ï ı"
+E
+java:S1874"/Remove this use of "Handler"; it is deprecated.(í⁄©ä

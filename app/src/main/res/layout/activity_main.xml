@@ -4,8 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="135dp"
+        android:layout_height="118dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="270dp"
+        app:srcCompat="@drawable/leaf_svgrepo_com_1" />
 
     <TextView
         android:id="@+id/ReUse"
@@ -18,13 +25,4 @@
         android:layout_marginTop="16dp"
         android:text="ReUse"
         />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="135dp"
-        android:layout_height="118dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        app:srcCompat="@drawable/leaf_svgrepo_com_1" />
-
 </RelativeLayout>

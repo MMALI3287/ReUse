@@ -1,9 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="35dp"
+    android:background="#F5F5F5"
     tools:context=".HomePage">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/t1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Items"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:fontFamily="sans-serif-medium"  />
+
+    <EditText
+        android:id="@+id/e5"
+        android:layout_width="match_parent"
+        android:background="@drawable/edit_text_bg"
+        android:padding="12dp"
+        android:hint="Search"
+        android:layout_marginTop="20dp"
+    android:layout_height="48dp"
+    android:layout_below="@+id/t1" />
+
+    <TextView
+        android:id="@+id/t2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="sans-serif-medium"
+        android:text="20Km"
+        android:textColor="#4CAF50"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/tab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/e5"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/tab" />
+
+    <ImageView
+        android:id="@+id/headphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/e5"
+        android:layout_marginTop="50dp"
+        android:layout_alignParentEnd="true"
+        app:srcCompat="@drawable/headphone" />
+
+    <ImageView
+        android:id="@+id/chair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tab"
+        android:layout_marginTop="85dp"
+        app:srcCompat="@drawable/chair" />
+
+    <ImageView
+        android:id="@+id/clock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headphone"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="85dp"
+        app:srcCompat="@drawable/clock" />
+
+    <ImageView
+        android:id="@+id/home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="660dp"
+        app:srcCompat="@drawable/home" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav_menu"
+        />
+
+
+</RelativeLayout>
