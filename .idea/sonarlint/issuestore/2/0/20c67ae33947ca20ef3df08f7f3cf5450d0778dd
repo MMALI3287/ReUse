@@ -1,9 +1,0 @@
-
-Q	java:S125"<This block of commented-out lines of code should be removed.(…õ’ğ
-Y
-java:S1854*"CRemove this useless assignment to local variable "fragmentManager".(âÏ²¹
-E
-java:S1172)"/Remove this unused method parameter "fragment".(‡´”
-J
-java:S1481*"4Remove this unused "fragmentManager" local variable.(âÏ²¹
-V	java:S125,"<This block of commented-out lines of code should be removed.(±Ìöıÿÿÿÿ

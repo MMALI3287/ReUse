@@ -3,29 +3,19 @@ c
 3app/src/main/java/com/example/reuse/GetStarted.java,8\d\8dc9dc7a29ed095901f362b25dda116dbcb44286
 H
 app/google-services.json,f\d\fd8d34b142d02ec743a8efefefd2c097961666e9
-e
-5app/src/main/java/com/example/reuse/MainActivity.java,8\4\844614247c72fd3ade8258a5a9abad7fcba2eb08
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 ?
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-b
-2app/src/main/java/com/example/reuse/LoginPage.java,9\d\9d84e859cfe8053cfe6852b3ecb6d848334fabc7
 c
 3app/src/main/java/com/example/reuse/SignupPage.java,3\b\3b30665bca5a5e7b6073e0a7e672c9af532307a3
-f
-6app/src/main/java/com/example/reuse/LoginRegister.java,6\7\6739bdd798532b511ed76490bfeec567171c7680
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
-a
-1app/src/main/java/com/example/reuse/HomePage.java,2\0\20c67ae33947ca20ef3df08f7f3cf5450d0778dd
 e
 5app/src/main/java/com/example/reuse/HomeFragment.java,2\2\22059034fada57f2c1b795f4480f648c1655dfb7
 e
 5app/src/main/java/com/example/reuse/ChatFragment.java,f\8\f8ff377ff0d4e05ae44bf441a20975199cb02576
 e
 5app/src/main/java/com/example/reuse/PostFragment.java,8\e\8edae958056f5dbfdf397c61e3695caa8baa24fb
-h
-8app/src/main/java/com/example/reuse/ProfileFragment.java,0\1\01ac58e30b7fbccc24bb7355963a87e740305295
+e
+5app/src/main/java/com/example/reuse/MainActivity.java,8\4\844614247c72fd3ade8258a5a9abad7fcba2eb08
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164

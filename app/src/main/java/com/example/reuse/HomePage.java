@@ -17,31 +17,32 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityHomePageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        /*
+        replaceFragment(new HomeFragment());
+
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.home:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new HomeFragment()).commit();
+                    replaceFragment(new HomeFragment());
                     return true;
                 case R.id.post:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new PostFragment()).commit();
+                    replaceFragment(new PostFragment());
                     return true;
                 case R.id.chat:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new ChatFragment()).commit();
+                    replaceFragment(new ChatFragment());
                     return true;
                 case R.id.profile:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new ProfileFragment()).commit();
+                    replaceFragment(new ProfileFragment());
                     return true;
             }
             return false;
         });
 
-         */
+
     }
     public void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        //transaction.replace(R.id.homepage, fragment);
+        transaction.replace(R.id.frame, fragment);
         transaction.commit();
     }
 }
