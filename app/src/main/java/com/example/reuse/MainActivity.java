@@ -20,8 +20,9 @@ public class MainActivity extends AppCompatActivity {
         textView.setTypeface(custom_font);
         handler.postDelayed(new Runnable() {
             public void run() {
-                Intent intent = new Intent(MainActivity.this, LoginRegister.class);
+                Intent intent = new Intent(MainActivity.this, GetStarted.class);
                 startActivity(intent);
+                finish();
             }
         },3000);
     }

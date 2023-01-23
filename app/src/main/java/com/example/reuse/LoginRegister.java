@@ -22,11 +22,11 @@ public class LoginRegister extends AppCompatActivity {
         setContentView(R.layout.activity_login_register);
         login = findViewById(R.id.imageView6);
         register=findViewById(R.id.imageView7);
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        if(account != null){
-            Intent intent = new Intent(LoginRegister.this, HomePage.class);
-            startActivity(intent);
-        }
+//        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+//        if(account != null){
+//            Intent intent = new Intent(LoginRegister.this, HomePage.class);
+//            startActivity(intent);
+//        }
         login.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(LoginRegister.this, LoginPage.class);
