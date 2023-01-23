@@ -15,7 +15,3 @@ e
 5app/src/main/java/com/example/reuse/ChatFragment.java,f\8\f8ff377ff0d4e05ae44bf441a20975199cb02576
 e
 5app/src/main/java/com/example/reuse/PostFragment.java,8\e\8edae958056f5dbfdf397c61e3695caa8baa24fb
-e
-5app/src/main/java/com/example/reuse/MainActivity.java,8\4\844614247c72fd3ade8258a5a9abad7fcba2eb08
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
