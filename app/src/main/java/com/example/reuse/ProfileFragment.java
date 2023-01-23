@@ -1,6 +1,7 @@
 package com.example.reuse;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,8 +20,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileFragment extends Fragment {
+
+    TextView name, email;
+    Button signOut;
 
     public ProfileFragment() {
     }
@@ -44,33 +50,26 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        GoogleSignInOptions gso;
-        GoogleSignInClient gsc;
-        TextView name, email;
-        name = view.findViewById(R.id.userName);
-        email = view.findViewById(R.id.UserEmail);
-        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-        gsc = GoogleSignIn.getClient(getActivity(), gso);
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getActivity());
-        if (account != null) {
-            name.setText("Hello " + account.getDisplayName());
-            email.setText("mail: " + account.getEmail());
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+
+            name = view.findViewById(R.id.userName);
+            email = view.findViewById(R.id.UserEmail);
+
+            name.setText("Hello " + user.getDisplayName());
+            email.setText("mail: " + user.getEmail());
+
+            signOut = view.findViewById(R.id.signOut);
+            signOut.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    FirebaseAuth.getInstance().signOut();
+                    Intent intent = new Intent(getActivity(), LoginRegister.class);
+                    startActivity(intent);
+                    getActivity().finish();
+                }
+            });
         }
-        Button signOut;
-        signOut = view.findViewById(R.id.signOut);
-        signOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                gsc.signOut().addOnCompleteListener(getActivity(), new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(Task<Void> task) {
-                        Intent intent = new Intent(getActivity(), LoginRegister.class);
-                        startActivity(intent);
-                    }
-                });
-            }
-        });
+
     }
 }
