@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/messageimg"
-        android:layout_marginLeft="82dp"
+        android:layout_marginLeft="70dp"
         android:layout_marginTop="31dp"/>
     <TextView
         android:id="@+id/t1"

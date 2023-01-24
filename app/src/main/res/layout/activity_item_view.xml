@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".HomeFragment">
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -30,7 +26,8 @@
         android:text="Steve Tim"
         android:textColor="#000000"
         android:layout_marginTop="45dp"
-        android:layout_marginLeft="65dp"
+        android:layout_toRightOf="@+id/i1"
+        android:layout_marginLeft="15dp"
         android:textStyle="bold"
         android:textSize="18sp" />
 
@@ -51,13 +48,15 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/iconmsg"
         android:layout_marginTop="48dp"
-        android:layout_marginLeft="260dp"/>
+        android:layout_toLeftOf="@id/t2"
+        android:layout_marginRight="10dp"/>
 
     <ImageView
         android:id="@+id/i4"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="85dp"
+        android:layout_below="@+id/i1"
+        android:layout_marginTop="10dp"
         app:srcCompat="@drawable/itemviewimg" />
 
     <TextView
@@ -68,7 +67,7 @@
         android:text="Apple ipad"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:layout_marginTop="340dp"
+        android:layout_below="@+id/i4"
         android:textSize="26sp" />
     <TextView
         android:id="@+id/t4"
@@ -77,8 +76,9 @@
         android:fontFamily="sans-serif-medium"
         android:text="Hatirjheel,Dhaka"
         android:textColor="#4CAF50"
-        android:layout_marginLeft="225dp"
-        android:layout_marginTop="348dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/i4"
+        android:layout_marginTop="5dp"
         android:textSize="18sp" />
 
     <ImageView
@@ -87,10 +87,10 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/comment"
         android:textStyle="bold"
-        android:layout_marginTop="388dp"/>
+        android:layout_below="@+id/t3"
+        android:layout_marginTop="20dp"/>
 
 
     />
 
 </RelativeLayout>
-</FrameLayout>

@@ -15,3 +15,19 @@ e
 5app/src/main/java/com/example/reuse/ChatFragment.java,f\8\f8ff377ff0d4e05ae44bf441a20975199cb02576
 e
 5app/src/main/java/com/example/reuse/PostFragment.java,8\e\8edae958056f5dbfdf397c61e3695caa8baa24fb
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+a
+1app/src/main/java/com/example/reuse/HomePage.java,2\0\20c67ae33947ca20ef3df08f7f3cf5450d0778dd
+h
+8app/src/main/java/com/example/reuse/ProfileFragment.java,0\1\01ac58e30b7fbccc24bb7355963a87e740305295
+f
+6app/src/main/java/com/example/reuse/LoginRegister.java,6\7\6739bdd798532b511ed76490bfeec567171c7680
+`
+0app/src/main/java/com/example/reuse/FBLogin.java,a\2\a2e7446277631fa15fed4163e5b3abf136918ec2
+e
+5app/src/main/java/com/example/reuse/MainActivity.java,8\4\844614247c72fd3ade8258a5a9abad7fcba2eb08
+b
+2app/src/main/java/com/example/reuse/LoginPage.java,9\d\9d84e859cfe8053cfe6852b3ecb6d848334fabc7
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e

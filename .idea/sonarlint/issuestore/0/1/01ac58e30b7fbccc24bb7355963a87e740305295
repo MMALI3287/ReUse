@@ -1,0 +1,15 @@
+
+>
+java:S1604B"(Make this anonymous inner class a lambda(ÃàÜ€
+C
+java:S1604?"(Make this anonymous inner class a lambda(ÿ—º­øÿÿÿÿ
+v
+java:S1488"`Immediately return this expression instead of assigning it to the temporary variable "fragment".(†Æßé
+œ
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.( æŸõşÿÿÿÿ
+T
+java:S1172"9Remove these unused method parameters "param1", "param2".(ï¸´×ÿÿÿÿÿ
+>
+java:S1185!"(Remove this method to simply inherit it.(ßìê¯
+9
+java:S16591"#Declare "email" on a separate line.(ãËÓ
