@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:padding="25dp"
+    tools:context=".Message">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/messageimg"
+        android:layout_marginLeft="82dp"
+        android:layout_marginTop="31dp"/>
+    <TextView
+        android:id="@+id/t1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="Apple ipad"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="172dp"
+        android:textSize="26sp" />
+
+    <ImageView
+        android:id="@+id/i1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="123dp"
+        app:srcCompat="@drawable/id1" />
+    <TextView
+        android:id="@+id/t2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="Steve Tim"
+        android:textColor="#000000"
+        android:layout_marginTop="135dp"
+        android:layout_marginLeft="65dp"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/i2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="195dp"
+        android:layout_marginLeft="180dp"
+        app:srcCompat="@drawable/rectangle" />
+
+    <ImageView
+        android:id="@+id/i3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="190dp"
+        app:srcCompat="@drawable/rctngltxtpng" />
+    <ImageView
+        android:id="@+id/i4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        app:srcCompat="@drawable/id1" />
+
+    <ImageView
+        android:id="@+id/i5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="270dp"
+        android:layout_marginLeft="57dp"
+        app:srcCompat="@drawable/rctngl2" />
+
+    <ImageView
+        android:id="@+id/i6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:layout_marginLeft="63dp"
+        app:srcCompat="@drawable/sure" />
+</RelativeLayout>
