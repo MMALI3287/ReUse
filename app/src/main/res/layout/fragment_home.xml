@@ -50,124 +50,37 @@
 
          <ImageView
     android:id="@+id/tab"
-    android:layout_width="128dp"
-    android:layout_height="128dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:layout_below="@+id/e5"
-    android:layout_marginTop="30dp"
+    android:layout_marginTop="50dp"
     app:srcCompat="@drawable/tab" />
 
  <ImageView
     android:id="@+id/headphone"
-    android:layout_width="128dp"
-    android:layout_height="128dp"
-    android:layout_marginTop="290dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/e5"
+    android:layout_marginTop="50dp"
+    android:layout_alignParentEnd="true"
     app:srcCompat="@drawable/headphone" />
 
 <ImageView
     android:id="@+id/chair"
-    android:layout_width="128dp"
-    android:layout_height="128dp"
-    android:layout_marginTop="450dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/tab"
+    android:layout_marginTop="95dp"
     app:srcCompat="@drawable/chair" />
-        <TextView
-            android:id="@+id/t4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="Apple ipad"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:layout_marginTop="145dp"
-            android:layout_marginLeft="152dp"
-            android:textSize="24sp" />
-        <TextView
-            android:id="@+id/t5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="Apple ipad"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:layout_marginTop="305dp"
-            android:layout_marginLeft="152dp"
-            android:textSize="24sp" />
-        <TextView
-            android:id="@+id/t6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="Apple ipad"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:layout_marginTop="460dp"
-            android:layout_marginLeft="152dp"
-            android:textSize="24sp" />
-        <TextView
-            android:id="@+id/t7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="Hatirjheel,Dhaka"
-            android:textColor="#000000"
-            android:layout_marginTop="185dp"
-            android:layout_marginLeft="152dp"
-            android:textSize="16sp" />
-        <TextView
-            android:id="@+id/t8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="Hatirjheel,Dhaka"
-            android:textColor="#000000"
-            android:layout_marginTop="345dp"
-            android:layout_marginLeft="152dp"
-            android:textSize="16sp" />
-        <TextView
-            android:id="@+id/t9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="Hatirjheel,Dhaka"
-            android:textColor="#000000"
-            android:layout_marginTop="500dp"
-            android:layout_marginLeft="152dp"
-            android:textSize="16sp" />
-        <TextView
-            android:id="@+id/t10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="2 Hours ago"
-            android:textColor="#838181"
-            android:layout_marginLeft="285dp"
-            android:layout_marginTop="238dp"
-            android:textStyle="bold"
-            android:textSize="12sp" />
-        <TextView
-            android:id="@+id/t11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="2 Hours ago"
-            android:textColor="#838181"
-            android:layout_marginLeft="285dp"
-            android:layout_marginTop="390dp"
-            android:textStyle="bold"
-            android:textSize="12sp" />
-        <TextView
-            android:id="@+id/t12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:text="2 Hours ago"
-            android:textColor="#838181"
-            android:layout_marginLeft="285dp"
-            android:layout_marginTop="558dp"
-            android:textStyle="bold"
-            android:textSize="12sp" />
 
-
-
+<ImageView
+    android:id="@+id/clock"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/headphone"
+    android:layout_alignParentEnd="true"
+    android:layout_marginTop="95dp"
+    app:srcCompat="@drawable/clock" />
     </RelativeLayout>
 
 

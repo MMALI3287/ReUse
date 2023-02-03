@@ -1,64 +1,114 @@
 package com.example.reuse;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PostFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.reuse.databinding.FragmentPostBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+
 public class PostFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public PostFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PostFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PostFragment newInstance(String param1, String param2) {
-        PostFragment fragment = new PostFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    DatabaseReference databaseRef;
+    FirebaseUser user;
+    FragmentPostBinding binding;
+    private ArrayList<Uri> imageUris;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+            Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_post, container, false);
+        binding = FragmentPostBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        databaseRef = FirebaseDatabase
+                .getInstance("https://reuse-20200204-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                .getReference("Users");
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        imageUris = new ArrayList<>();
+        load();
+        binding.photos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pickImagesIntent();
+            }
+        });
+    }
+
+    public void load() {
+        databaseRef.child(user.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String url = String.valueOf(snapshot.child("profilePhotoUrl").getValue());
+                Log.d("Fahad", url);
+                String displayName = String.valueOf(snapshot.child("displayName").getValue());
+                binding.displayName.setText(displayName);
+                if (url.length() > 10) {
+                    Picasso.get().load(url).into(binding.profileImage);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void pickImagesIntent() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Image(s)"), 1);
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
+            if (data.getClipData() != null) {
+                int count = data.getClipData().getItemCount();
+                if (count > 3) {
+                    Toast.makeText(getActivity(), "Too many Images Selected", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                for (int i = 0; i < count; i++) {
+                    Uri imageUri = data.getClipData().getItemAt(i).getUri();
+                    imageUris.add(imageUri);
+                }
+            } else {
+                Uri imageUri = data.getData();
+                imageUris.add(imageUri);
+            }
+            binding.photos.setImageURI(imageUris.get(0));
+        }
+
     }
 }

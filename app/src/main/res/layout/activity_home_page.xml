@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF5151"
     tools:context=".HomePage">
 
 
@@ -12,19 +11,22 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:outlineAmbientShadowColor="#356EFD"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav_menu"
+        app:labelVisibilityMode="labeled"
+        app:itemTextColor="@drawable/bottom_nav_item_color"
+        app:itemIconTint="@drawable/bottom_nav_item_color"
         />
 
-    <FrameLayout
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottomNavigationView"
-        >
+        android:name="com.example.reuse.HomeFragment"
+        tools:layout="@layout/fragment_home">
 
-    </FrameLayout>
+    </androidx.fragment.app.FragmentContainerView>
 
 
 </RelativeLayout>

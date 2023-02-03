@@ -15,8 +15,6 @@ e
 5app/src/main/java/com/example/reuse/ChatFragment.java,f\8\f8ff377ff0d4e05ae44bf441a20975199cb02576
 e
 5app/src/main/java/com/example/reuse/PostFragment.java,8\e\8edae958056f5dbfdf397c61e3695caa8baa24fb
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 a
 1app/src/main/java/com/example/reuse/HomePage.java,2\0\20c67ae33947ca20ef3df08f7f3cf5450d0778dd
 h
@@ -41,3 +39,5 @@ w
 G.idea/sonarlint/issuestore/f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164,3\1\31073cf3a12b082ef2fe0f9403916a4db3811c89
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164

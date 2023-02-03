@@ -3,45 +3,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200"
     tools:context=".ProfileFragment">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ProfileFragment"
-        >
-        <Button
-            android:id="@+id/signOut"
+        android:layout_height="match_parent">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="60dp"
+            android:layout_centerHorizontal="true"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:src="@drawable/profile_picture_placeholder"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            />
+        <TextView
+            android:id="@+id/profileName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Logout"
-            android:layout_centerInParent="true"
-            android:layout_below="@+id/UserEmail"
-            android:textSize="18sp"
-            android:layout_marginTop="69dp"
+            android:text="Name"
+            android:layout_below="@id/profileImage"
+            android:layout_centerHorizontal="true"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="8dp"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/editProfileButton"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            app:cornerRadius="8dp"
+            app:strokeColor="@color/colorPrimary"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/colorPrimary"
+            app:strokeWidth="1sp"
+            android:text="Edit Profile"
+            android:textSize="8sp"
+            android:layout_below="@id/profileName"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Listed Items"
+            android:layout_below="@id/editProfileButton"
+            android:layout_centerHorizontal="true"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signoutButton"
+            android:layout_width="72dp"
+            android:layout_height="32dp"
+            android:text="Signout"
+            android:textSize="8sp"
+            app:cornerRadius="8dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="12dp"
             />
 
-        <TextView
-            android:id="@+id/userName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="User Name"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:layout_centerInParent="true" />
 
-        <TextView
-            android:id="@+id/UserEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="User Email"
-            android:textSize="25sp"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="30dp"
-            android:layout_below="@+id/userName" />
+
+
+
+
+
 
     </RelativeLayout>
 

@@ -15,18 +15,6 @@
         android:theme="@style/AppTheme.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".Post"
-            android:exported="false" />
-        <activity
-            android:name=".Profile"
-            android:exported="false" />
-        <activity
-            android:name=".Message"
-            android:exported="false" />
-        <activity
-            android:name=".ItemView"
-            android:exported="false" />
-        <activity
             android:name=".FBLogin"
             android:exported="false" />
         <activity
