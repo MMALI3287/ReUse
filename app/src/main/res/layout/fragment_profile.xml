@@ -45,16 +45,7 @@
             android:textSize="8sp"
             android:layout_below="@id/profileName"
             android:layout_centerHorizontal="true"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Listed Items"
-            android:layout_below="@id/editProfileButton"
-            android:layout_centerHorizontal="true"
-            android:textSize="12sp"
-            android:textColor="@color/black"
-            android:layout_marginTop="16dp"
-            />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/signoutButton"
             android:layout_width="72dp"
@@ -68,14 +59,24 @@
             android:layout_marginTop="12dp"
             android:layout_marginRight="12dp"
             />
-
-
-
-
-
-
-
-
+        <TextView
+            android:id="@+id/listedItemsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Listed Items"
+            android:layout_below="@id/editProfileButton"
+            android:layout_centerHorizontal="true"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="16dp"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/listedItemsText"
+            android:layout_margin="20dp"
+            />
     </RelativeLayout>
 
 

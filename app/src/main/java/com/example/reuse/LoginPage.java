@@ -37,7 +37,7 @@ import java.util.Arrays;
 
 public class LoginPage extends AppCompatActivity {
 
-    EditText email, password;
+    EditText email,password;
     ImageView login;
 
     ImageView btnGoogle;
@@ -53,9 +53,7 @@ public class LoginPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
 
-        databaseRef = FirebaseDatabase
-                .getInstance("https://reuse-20200204-default-rtdb.asia-southeast1.firebasedatabase.app/")
-                .getReference("Users");
+        databaseRef = FirebaseDatabase.getInstance("https://reuse-20200204-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
 
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
@@ -77,32 +75,33 @@ public class LoginPage extends AppCompatActivity {
                 String txt_email = email.getText().toString();
                 String txt_password = password.getText().toString();
 
-                if (txt_email.isEmpty() || txt_password.isEmpty()) {
+                if(txt_email.isEmpty() || txt_password.isEmpty()){
                     Toast.makeText(LoginPage.this, "Empty credentials", Toast.LENGTH_SHORT).show();
-                } else {
-                    loginUser(txt_email, txt_password);
+                }
+                else{
+                    loginUser(txt_email,txt_password);
                 }
             }
         });
         btnGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent googleSignInIntent = client.getSignInIntent();
+                Intent googleSignInIntent=client.getSignInIntent();
                 startActivityForResult(googleSignInIntent, 1);
             }
         });
     }
-
-    private void loginUser(String email, String password) {
-        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+    private void loginUser(String email,String password){
+        auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
+                if(task.isSuccessful()){
                     Toast.makeText(LoginPage.this, "Succesful Login", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginPage.this, HomePage.class);
                     startActivity(intent);
                     finish();
-                } else {
+                }
+                else{
                     Toast.makeText(LoginPage.this, "Failed Login", Toast.LENGTH_SHORT).show();
                     System.out.println("HEREEEEEEEEEEE!!!!");
                     System.out.println(task.getException().getMessage());
@@ -114,43 +113,37 @@ public class LoginPage extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+        if(requestCode==1){
+            Task<GoogleSignInAccount> task=GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
-                AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
+                AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(),null);
                 FirebaseAuth.getInstance().signInWithCredential(credential)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    Intent intent = new Intent(LoginPage.this, HomePage.class);
-                                    startActivity(intent);
-                                    finish();
-                                    databaseRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get()
-                                            .addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                        if(task.isSuccessful()){
+                                            Intent intent = new Intent(LoginPage.this, HomePage.class);
+                                            startActivity(intent);
+                                            finish();
+                                            databaseRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<DataSnapshot> task) {
-                                                    if (task.isSuccessful()) {
-                                                        if (!task.getResult().exists()) {
-                                                            databaseRef
-                                                                    .child(FirebaseAuth.getInstance().getCurrentUser()
-                                                                            .getUid())
-                                                                    .setValue(new Users(FirebaseAuth.getInstance()
-                                                                            .getCurrentUser().getDisplayName()));
+                                                    if(task.isSuccessful()){
+                                                        if(!task.getResult().exists()){
+                                                            databaseRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(new Users(FirebaseAuth.getInstance().getCurrentUser().getDisplayName()));
                                                         }
                                                     }
                                                 }
                                             });
-                                } else {
-                                    Toast.makeText(LoginPage.this, task.getException().getMessage(), Toast.LENGTH_SHORT)
-                                            .show();
-                                }
-                            }
-                        });
+                                        }else{
+                                            Toast.makeText(LoginPage.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
 
             } catch (ApiException e) {
-                Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Something went wrong", Toast.LENGTH_SHORT).show();
             }
         }
     }

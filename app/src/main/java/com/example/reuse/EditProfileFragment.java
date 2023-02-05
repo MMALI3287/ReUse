@@ -135,11 +135,11 @@ public class EditProfileFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String url = String.valueOf(snapshot.child("profilePhotoUrl").getValue());
                 String name = String.valueOf(snapshot.child("displayName").getValue());
+                Log.d("Fahad",url);
+                displayNameEditText.setText(name);
                 if(url.length()<10)
                     return;
-                Log.d("Fahad",url);
                 Picasso.get().load(url).into(profileImage);
-                displayNameEditText.setText(name);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

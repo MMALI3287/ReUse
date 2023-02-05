@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent"
+    app:cardElevation="5dp"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="5dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <ImageView
+            android:id="@+id/cardImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_launcher_background"
+            android:scaleType="centerCrop"
+            android:layout_margin="8dp"/>
+        <TextView
+            android:id="@+id/cardTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apple iPad"
+            android:textSize="32sp"
+            android:layout_toRightOf="@+id/cardImage" />
+        <TextView
+            android:id="@+id/cardLocationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hatirjheel,Dhaka"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/cardImage"
+            android:layout_below="@+id/cardTitleText"
+            android:layout_marginTop="8dp"/>
+        <TextView
+            android:id="@+id/cardTimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 Hours Ago"
+            android:textSize="20sp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="104dp"
+            android:layout_marginRight="8dp"/>
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

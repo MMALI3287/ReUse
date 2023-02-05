@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp">
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/upperlinear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,16 +32,38 @@
                 android:text="Name"
                 android:textSize="20sp"
                 android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/profileImage"
+                android:layout_centerVertical="true"
                 />
-        </LinearLayout>
-        <ImageView
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addPhotosButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add photos"
+                android:backgroundTint="@color/colorPrimary"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+        <com.smarteist.autoimageslider.SliderView
             android:id="@+id/photos"
             android:layout_width="match_parent"
             android:layout_height="144dp"
             android:layout_below="@+id/upperlinear"
-            android:src="@drawable/add_photos"
-            android:scaleType="centerCrop"
             android:layout_marginTop="20dp"
+            app:sliderAnimationDuration="600"
+            app:sliderAutoCycleDirection="back_and_forth"
+            app:sliderAutoCycleEnabled="true"
+            app:sliderIndicatorAnimationDuration="600"
+            app:sliderIndicatorGravity="center_horizontal|bottom"
+            app:sliderIndicatorMargin="15dp"
+            app:sliderIndicatorOrientation="horizontal"
+            app:sliderIndicatorPadding="3dp"
+            app:sliderIndicatorRadius="2dp"
+            app:sliderIndicatorSelectedColor="@color/black"
+            app:sliderIndicatorUnselectedColor="@color/white"
+            app:sliderScrollTimeInSec="2"
+            app:sliderStartAutoCycle="false"
             />
         <TextView
             android:id="@+id/locationText"
