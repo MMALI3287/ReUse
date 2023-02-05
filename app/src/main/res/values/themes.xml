@@ -17,5 +17,6 @@
     <style name="AppTheme.NoActionBar" parent="Theme.ReUse">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:fontFamily">@font/poppins</item>
     </style>
 </resources>

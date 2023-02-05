@@ -18,21 +18,26 @@
             android:src="@drawable/ic_launcher_background"
             android:scaleType="centerCrop"
             android:layout_margin="8dp"/>
+
         <TextView
             android:id="@+id/cardTitleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@+id/cardImage"
             android:text="Apple iPad"
-            android:textSize="32sp"
-            android:layout_toRightOf="@+id/cardImage" />
+            android:textColor="@color/black"
+            android:textSize="32sp" />
         <TextView
             android:id="@+id/cardLocationText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hatirjheel,Dhaka"
             android:textSize="20sp"
+            android:textColor="@color/black"
             android:layout_toRightOf="@+id/cardImage"
             android:layout_below="@+id/cardTitleText"
+            android:layout_marginLeft="4dp"
             android:layout_marginTop="8dp"/>
         <TextView
             android:id="@+id/cardTimeText"
