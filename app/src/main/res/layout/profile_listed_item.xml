@@ -24,6 +24,8 @@
             android:layout_height="wrap_content"
             android:text="Apple iPad"
             android:textSize="32sp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="4dp"
             android:layout_toRightOf="@+id/cardImage" />
         <TextView
             android:id="@+id/cardLocationText"
@@ -31,8 +33,10 @@
             android:layout_height="wrap_content"
             android:text="Hatirjheel,Dhaka"
             android:textSize="20sp"
+            android:textColor="@color/black"
             android:layout_toRightOf="@+id/cardImage"
             android:layout_below="@+id/cardTitleText"
+            android:layout_marginLeft="4dp"
             android:layout_marginTop="8dp"/>
         <TextView
             android:id="@+id/cardTimeText"
