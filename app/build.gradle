@@ -3,6 +3,7 @@
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 android {
     namespace 'com.example.reuse'
@@ -53,4 +54,5 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:20.0.0'
     implementation 'com.facebook.android:facebook-android-sdk:latest.release'
     implementation 'com.github.smarteist:autoimageslider:1.4.0'
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
 }

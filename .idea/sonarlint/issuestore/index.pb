@@ -8,8 +8,6 @@ c
 e
 5app/src/main/java/com/example/reuse/HomeFragment.java,2\2\22059034fada57f2c1b795f4480f648c1655dfb7
 e
-5app/src/main/java/com/example/reuse/ChatFragment.java,f\8\f8ff377ff0d4e05ae44bf441a20975199cb02576
-e
 5app/src/main/java/com/example/reuse/PostFragment.java,8\e\8edae958056f5dbfdf397c61e3695caa8baa24fb
 a
 1app/src/main/java/com/example/reuse/HomePage.java,2\0\20c67ae33947ca20ef3df08f7f3cf5450d0778dd
@@ -21,15 +19,19 @@ f
 0app/src/main/java/com/example/reuse/FBLogin.java,a\2\a2e7446277631fa15fed4163e5b3abf136918ec2
 b
 2app/src/main/java/com/example/reuse/LoginPage.java,9\d\9d84e859cfe8053cfe6852b3ecb6d848334fabc7
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 w
 G.idea/sonarlint/issuestore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e,3\2\32813322c99a6c8a141ab2dc12bc10af3425f1b4
 w
-G.idea/sonarlint/issuestore/8/4/844614247c72fd3ade8258a5a9abad7fcba2eb08,b\7\b7a3d0b0ea7ae4c0efc6a339d7de9e7a3d8c7690
-w
 G.idea/sonarlint/issuestore/9/d/9d84e859cfe8053cfe6852b3ecb6d848334fabc7,4\e\4ef47073884066c184e847f45e627b02e2a897ed
-w
-G.idea/sonarlint/issuestore/f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164,3\1\31073cf3a12b082ef2fe0f9403916a4db3811c89
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+e
+5app/src/main/java/com/example/reuse/MainActivity.java,8\4\844614247c72fd3ade8258a5a9abad7fcba2eb08
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+?
+settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
