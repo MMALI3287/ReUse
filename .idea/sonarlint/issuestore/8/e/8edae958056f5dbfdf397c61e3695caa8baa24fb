@@ -1,15 +1,37 @@
 
-l
-java:S1450"VRemove the "mParam1" field and declare it as a local variable in the relevant methods.(•Íï‘
-l
-java:S1450"VRemove the "mParam2" field and declare it as a local variable in the relevant methods.(¡ˆ€ 
-M
-java:S1135"2Complete the task associated to this TODO comment.(ÜûŠ—øÿÿÿÿ
-M
-java:S1135"2Complete the task associated to this TODO comment.(ğï¢öúÿÿÿÿ
-M
-java:S1135'"2Complete the task associated to this TODO comment.(ßíŠÿÿÿÿÿ
-A
-java:S1068"+Remove this unused "mParam1" private field.(•Íï‘
-A
-java:S1068"+Remove this unused "mParam2" private field.(¡ˆ€ 
+u
+java:S2293¼"YReplace the type specification in this constructor call with the diamond operator ("<>").(™ºöºıÿÿÿÿ
+u
+java:S2293Ç"YReplace the type specification in this constructor call with the diamond operator ("<>").(™ºöºıÿÿÿÿ
+¡
+java:S1192B"ŠDefine a constant instead of duplicating this literal "https://reuse-20200204-default-rtdb.asia-southeast1.firebasedatabase.app/" 3 times.(™¥Ìº
+>
+java:S1604I"(Make this anonymous inner class a lambda( ÑÅ„
+C
+java:S1604["(Make this anonymous inner class a lambda(ÙÏÔüıÿÿÿÿ
+=
+java:S1604p"(Make this anonymous inner class a lambda(ÜËüW
+?
+java:S1604¹"(Make this anonymous inner class a lambda(á§àì
+?
+java:S1604µ"(Make this anonymous inner class a lambda(´ôé
+^
+java:S2259š"BA "NullPointerException" could be thrown; "data" is nullable here.(Ìáòıÿÿÿÿ
+=
+java:S1125^"'Remove the unnecessary boolean literal.(¡âÀç
+˜
+java:S1186‡"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ô°¤¦
+U
+java:S1874‘">Remove this use of "startActivityForResult"; it is deprecated.(´ôÌ¡
+f
+java:S1874–"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(™­²©ùÿÿÿÿ
+T
+java:S1874—"8Remove this use of "onActivityResult"; it is deprecated.(ß¬©úÿÿÿÿ
+\
+java:S1858³"@"getUid" returns a string, there's no need to call "toString()".(ŸÅ¯ûÿÿÿÿ
+W
+java:S1858¾"@"getUid" returns a string, there's no need to call "toString()".(¬ÜÒÌ
+\
+java:S1858Ë"@"getUid" returns a string, there's no need to call "toString()".(¹Ìôäøÿÿÿÿ
+W
+java:S1858Í"@"getUid" returns a string, there's no need to call "toString()".(˜¶È¬

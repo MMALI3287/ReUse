@@ -5,4 +5,5 @@
     <string name="facebook_app_id">605578088041780</string>
     <string name="fb_login_protocol_scheme">fb605578088041780</string>
     <string name="facebook_client_token">1a332bba4d5bf55c521d148861f59927</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>
