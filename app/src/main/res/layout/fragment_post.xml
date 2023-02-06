@@ -23,7 +23,7 @@
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
                 android:src="@drawable/profile_picture_placeholder"
-                app:shapeAppearanceOverlay="@style/roundedImageView"
+                app:shapeAppearanceOverlay="@style/roundedImageView2"
                 />
             <TextView
                 android:id="@+id/displayName"
@@ -35,15 +35,7 @@
                 android:layout_toRightOf="@id/profileImage"
                 android:layout_centerVertical="true"
                 />
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/addPhotosButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add photos"
-                android:backgroundTint="@color/colorPrimary"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                />
+
         </RelativeLayout>
         <com.smarteist.autoimageslider.SliderView
             android:id="@+id/photos"
@@ -72,6 +64,16 @@
             android:text="Location"
             android:layout_below="@+id/photos"
             android:layout_marginTop="8dp"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addPhotosButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add photos"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/photos"
+            android:layout_margin="8dp"
             />
         <LinearLayout
             android:id="@+id/middleLinear"

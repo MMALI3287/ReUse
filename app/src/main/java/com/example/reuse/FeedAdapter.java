@@ -32,7 +32,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder> 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.feed_list_item,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.feed_list_item_grid,parent,false);
         return new MyViewHolder(v);
     }
 
@@ -64,7 +64,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder> 
         CardView parent;
         ImageView cardImage;
         TextView cardTitleText;
-        TextView cardTimeText;
+        //TextView cardTimeText;
         TextView cardLocationText;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -72,7 +72,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder> 
             parent = itemView.findViewById(R.id.parent);
             cardImage = itemView.findViewById(R.id.cardImage);
             cardTitleText = itemView.findViewById(R.id.cardTitleText);
-            cardTimeText = itemView.findViewById(R.id.cardTimeText);
+            //cardTimeText = itemView.findViewById(R.id.cardTimeText);
             cardLocationText = itemView.findViewById(R.id.cardLocationText);
         }
     }
