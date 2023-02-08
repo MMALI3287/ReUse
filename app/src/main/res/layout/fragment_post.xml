@@ -109,12 +109,12 @@
         <EditText
             android:id="@+id/titleEditText"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="43dp"
             android:layout_below="@id/titleText"
             android:background="@drawable/et_style"
             android:layout_marginTop="8dp"
             android:inputType="text"
-            android:padding="10dp"
+            android:padding="6dp"
             />
         <TextView
             android:id="@+id/descriptionText"

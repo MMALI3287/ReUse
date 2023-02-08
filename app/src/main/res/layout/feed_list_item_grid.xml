@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Apple iPad"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textColor="@color/black"
             android:layout_marginLeft="8dp"
             android:layout_below="@+id/cardImage" />
