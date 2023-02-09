@@ -1,0 +1,25 @@
+
+F
+java:S1066"/Merge this if statement with the enclosing one.(Õ­Ï
+k	java:S117S"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êŒµÿüÿÿÿÿ
+f	java:S117T"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾á£Ù
+C
+java:S1604P"(Make this anonymous inner class a lambda(ç¯€ùÿÿÿÿ
+>
+java:S1604^"(Make this anonymous inner class a lambda(¤žñŒ
+=
+java:S1604g"(Make this anonymous inner class a lambda(ÍžÖX
+D
+java:S1604‰"(Make this anonymous inner class a lambda(¼×Š‹þÿÿÿÿ
+?
+java:S1604‚"(Make this anonymous inner class a lambda(³Ö×•
+A
+java:S16590"&Declare "password" on a separate line.(ÀŠ­ýÿÿÿÿ
+Y
+java:S1874b">Remove this use of "startActivityForResult"; it is deprecated.(ÝÊ‘­ùÿÿÿÿ
+S	java:S106r"9Replace this use of System.out or System.err by a logger.(†èÒ¦þÿÿÿÿ
+S	java:S106s"9Replace this use of System.out or System.err by a logger.(ü…¹‘ûÿÿÿÿ
+_
+java:S1874z"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(¹Î¾
+g
+java:S3776z"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(¹Î¾

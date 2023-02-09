@@ -82,7 +82,7 @@
             android:layout_below="@id/locationText"
             android:layout_marginTop="8dp">
             <TextView
-                android:id="@+id/location"
+                android:id="@+id/locationTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Location"
@@ -135,7 +135,6 @@
             android:background="@drawable/et_style"
             android:gravity="top"
             android:padding="10dp"
-
             />
         <com.google.android.material.button.MaterialButton
             android:id="@+id/postButton"

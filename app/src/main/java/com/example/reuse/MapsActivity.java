@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -39,6 +40,7 @@ import com.karumi.dexter.listener.single.PermissionListener;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 
 public class MapsActivity extends AppCompatActivity {
@@ -67,42 +69,6 @@ public class MapsActivity extends AppCompatActivity {
         lat = findViewById(R.id.latitude);
         lng = findViewById(R.id.longitude);
         placeName = findViewById(R.id.place_name);
-
-        /*searchBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String location = searchBar.getText().toString();
-                if (!location.equals("")) {
-                    Geocoder geocoder = new Geocoder(MapsActivity.this);
-                    try {
-                        List<Address> addressList = geocoder.getFromLocationName(location, 1);
-                        if (addressList.size() > 0) {
-                            Address address = addressList.get(0);
-                            LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-                            googleMap.addMarker(new MarkerOptions().position(latLng).title(location));
-                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18));
-                            selectedLocation = latLng;
-                        } else {
-                            Toast.makeText(MapsActivity.this, "Location not found", Toast.LENGTH_SHORT).show();
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });*/
-
-        returnBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent resultIntent = new Intent();
-                resultIntent.putExtra("latitude", selectedLocation.latitude);
-                resultIntent.putExtra("longitude", selectedLocation.longitude);
-                resultIntent.putExtra("name", googleMap.getCameraPosition().target.toString());
-                setResult(RESULT_OK, resultIntent);
-                finish();
-            }
-        });
 
         Dexter.withContext(getApplicationContext())
                 .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
@@ -147,21 +113,60 @@ public class MapsActivity extends AppCompatActivity {
                     public void onMapReady(GoogleMap googleMap) {
                         if (location != null) {
                             selectedLocation = new LatLng(location.getLatitude(), location.getLongitude());
-                            MarkerOptions markerOptions = new MarkerOptions().position(selectedLocation).title("Your current Location");
+                            MarkerOptions markerOptions = new MarkerOptions().position(selectedLocation).title("Your Selected Location");
                             marker=googleMap.addMarker(markerOptions);
-                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(selectedLocation, 18));
+                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(selectedLocation, 16));
                             googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+                                @SuppressLint("SetTextI18n")
                                 @Override
                                 public void onMapClick(LatLng point) {
-                                    double latitude = point.latitude;
-                                    double longitude = point.longitude;
-                                    System.out.println(latitude + " " + longitude);
-                                    lat.setText("Latitude:\n"+latitude);
-                                    lng.setText("Longitude:\n"+longitude);
-                                    marker.setPosition(new LatLng(latitude, longitude));
-
-                                    //placeName.setText("Place name: "+googleMap.getCameraPosition().target.toString());
-
+                                    lat.setText("Latitude:\n"+point.latitude);
+                                    lng.setText("Longitude:\n"+point.longitude);
+                                    Geocoder geocoder = new Geocoder(MapsActivity.this, Locale.getDefault());
+                                    try {
+                                        List<Address> addressList = geocoder.getFromLocation(point.latitude, point.longitude, 1);
+                                        placeName.setText("Place name: "+addressList.get(0).getAddressLine(0));
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                    marker.setPosition(new LatLng(point.latitude, point.longitude));
+                                }
+                            });
+                            searchBtn.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    String location = searchBar.getText().toString();
+                                    if (!location.equals("")) {
+                                        Geocoder geocoder = new Geocoder(MapsActivity.this, Locale.getDefault());
+                                        try {
+                                            List<Address> addressList = geocoder.getFromLocationName(location, 1);
+                                            if (addressList.size() > 0) {
+                                                LatLng point = new LatLng( addressList.get(0).getLatitude(),  addressList.get(0).getLongitude());
+                                                lat.setText("Latitude:\n"+point.latitude);
+                                                lng.setText("Longitude:\n"+point.longitude);
+                                                placeName.setText("Place name: "+addressList.get(0).getAddressLine(0));
+                                                marker.setPosition(new LatLng(point.latitude, point.longitude));
+                                                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(point, 16));
+                                                selectedLocation = point;
+                                            } else {
+                                                Toast.makeText(MapsActivity.this, "Location not found", Toast.LENGTH_SHORT).show();
+                                            }
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                }
+                            });
+                            returnBtn.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent resultIntent = new Intent();
+                                    String placeNameString = placeName.getText().toString();
+                                    int indexOfColon = placeNameString.indexOf(":");
+                                    String placeName = placeNameString.substring(indexOfColon + 2);
+                                    resultIntent.putExtra("place_name", placeName);
+                                    setResult(RESULT_OK, resultIntent);
+                                    finish();
                                 }
                             });
                         }

@@ -1,37 +1,43 @@
 
 u
-java:S2293¼"YReplace the type specification in this constructor call with the diamond operator ("<>").(™ºöºıÿÿÿÿ
+java:S2293Å"YReplace the type specification in this constructor call with the diamond operator ("<>").(™ºöºıÿÿÿÿ
 u
-java:S2293Ç"YReplace the type specification in this constructor call with the diamond operator ("<>").(™ºöºıÿÿÿÿ
+java:S2293Ğ"YReplace the type specification in this constructor call with the diamond operator ("<>").(™ºöºıÿÿÿÿ
 ¡
-java:S1192B"ŠDefine a constant instead of duplicating this literal "https://reuse-20200204-default-rtdb.asia-southeast1.firebasedatabase.app/" 3 times.(™¥Ìº
+java:S1192F"ŠDefine a constant instead of duplicating this literal "https://reuse-20200204-default-rtdb.asia-southeast1.firebasedatabase.app/" 3 times.(™¥Ìº
 >
-java:S1604I"(Make this anonymous inner class a lambda( ÑÅ„
+java:S1604M"(Make this anonymous inner class a lambda( ÑÅ„
 C
-java:S1604["(Make this anonymous inner class a lambda(ÙÏÔüıÿÿÿÿ
+java:S1604_"(Make this anonymous inner class a lambda(ÙÏÔüıÿÿÿÿ
 =
-java:S1604p"(Make this anonymous inner class a lambda(ÜËüW
+java:S1604v"(Make this anonymous inner class a lambda(ÜËüW
 ?
-java:S1604¹"(Make this anonymous inner class a lambda(á§àì
+java:S1604Â"(Make this anonymous inner class a lambda(á§àì
 ?
-java:S1604µ"(Make this anonymous inner class a lambda(´ôé
-^
-java:S2259š"BA "NullPointerException" could be thrown; "data" is nullable here.(Ìáòıÿÿÿÿ
+java:S1604¾"(Make this anonymous inner class a lambda(´ôé
+e
+java:S2259 "BA "NullPointerException" could be thrown; "data" is nullable here.(Ìáòıÿÿÿÿ8ê¢š­ã0
+_
+java:S2259´"BA "NullPointerException" could be thrown; "data" is nullable here.(Ä¾èr8à×š­ã0
 =
-java:S1125^"'Remove the unnecessary boolean literal.(¡âÀç
+java:S1125b"'Remove the unnecessary boolean literal.(¡âÀç
+R
+java:S1117i"<Rename "location" which hides the field declared at line 55.(ÎÜòÇ
 ˜
-java:S1186‡"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ô°¤¦
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ô°¤¦
 U
-java:S1874‘">Remove this use of "startActivityForResult"; it is deprecated.(´ôÌ¡
+java:S1874—">Remove this use of "startActivityForResult"; it is deprecated.(´ôÌ¡
 f
-java:S1874–"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(™­²©ùÿÿÿÿ
+java:S1874œ"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(™­²©ùÿÿÿÿ
+[
+java:S1874"8Remove this use of "onActivityResult"; it is deprecated.(ß¬©úÿÿÿÿ8„£š­ã0
 T
-java:S1874—"8Remove this use of "onActivityResult"; it is deprecated.(ß¬©úÿÿÿÿ
+java:S1172¸"=Remove these unused method parameters "location", "category".(ä‚ö¹
 \
-java:S1858³"@"getUid" returns a string, there's no need to call "toString()".(ŸÅ¯ûÿÿÿÿ
+java:S1858¼"@"getUid" returns a string, there's no need to call "toString()".(ŸÅ¯ûÿÿÿÿ
 W
-java:S1858¾"@"getUid" returns a string, there's no need to call "toString()".(¬ÜÒÌ
+java:S1858Ç"@"getUid" returns a string, there's no need to call "toString()".(¬ÜÒÌ
 \
-java:S1858Ë"@"getUid" returns a string, there's no need to call "toString()".(¹Ìôäøÿÿÿÿ
+java:S1858Ô"@"getUid" returns a string, there's no need to call "toString()".(¹Ìôäøÿÿÿÿ
 W
-java:S1858Í"@"getUid" returns a string, there's no need to call "toString()".(˜¶È¬
+java:S1858Ø"@"getUid" returns a string, there's no need to call "toString()".(˜¶È¬
