@@ -51,8 +51,7 @@ public class PostFragment extends Fragment {
     private ArrayList<Uri> imageUris;
     boolean imageSelected=false;
     StorageReference storageReference;
-    private static final int REQUEST_LOCATION_SETTINGS = 1;
-    TextView location;
+    private static final int REQUEST_LOCATION_SETTINGS = 23;
 
 
 
@@ -119,7 +118,7 @@ public class PostFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(),MapsActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,REQUEST_LOCATION_SETTINGS);
             }
         });
     }
@@ -178,7 +177,9 @@ public class PostFragment extends Fragment {
         }
         if (requestCode == REQUEST_LOCATION_SETTINGS && resultCode == RESULT_OK) {
             String finalPlaceName = data.getStringExtra("place_name");
-            location.setText("Location: "+finalPlaceName);
+
+            Toast.makeText(getActivity(), finalPlaceName, Toast.LENGTH_SHORT).show();
+            binding.locationTextView.setText("Location: "+finalPlaceName);
         }
     }
     private void uploadToFirebase(ArrayList<Uri> imageUris,String title,String description,String location,String category) {

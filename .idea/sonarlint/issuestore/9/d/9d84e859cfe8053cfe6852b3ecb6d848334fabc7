@@ -7,19 +7,19 @@ C
 java:S1604P"(Make this anonymous inner class a lambda(ç¯€ùÿÿÿÿ
 >
 java:S1604^"(Make this anonymous inner class a lambda(¤žñŒ
-=
-java:S1604g"(Make this anonymous inner class a lambda(ÍžÖX
 D
-java:S1604‰"(Make this anonymous inner class a lambda(¼×Š‹þÿÿÿÿ
-?
-java:S1604‚"(Make this anonymous inner class a lambda(³Ö×•
+java:S1604g"(Make this anonymous inner class a lambda(ÍžÖX8ß¹ë£å0
+K
+java:S1604‰"(Make this anonymous inner class a lambda(¼×Š‹þÿÿÿÿ8ß¹ë£å0
+F
+java:S1604‚"(Make this anonymous inner class a lambda(³Ö×•8ã¹ë£å0
 A
 java:S16590"&Declare "password" on a separate line.(ÀŠ­ýÿÿÿÿ
-Y
-java:S1874b">Remove this use of "startActivityForResult"; it is deprecated.(ÝÊ‘­ùÿÿÿÿ
+`
+java:S1874b">Remove this use of "startActivityForResult"; it is deprecated.(ÝÊ‘­ùÿÿÿÿ8â»ë£å0
 S	java:S106r"9Replace this use of System.out or System.err by a logger.(†èÒ¦þÿÿÿÿ
 S	java:S106s"9Replace this use of System.out or System.err by a logger.(ü…¹‘ûÿÿÿÿ
-_
-java:S1874z"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(¹Î¾
+f
+java:S1874z"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(¹Î¾8þ»ë£å0
 g
 java:S3776z"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(¹Î¾

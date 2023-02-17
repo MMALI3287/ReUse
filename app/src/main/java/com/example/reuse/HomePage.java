@@ -25,7 +25,7 @@ import com.google.android.gms.tasks.Task;
 public class HomePage extends AppCompatActivity {
 
     ActivityHomePageBinding binding;
-    private final int REQUEST_LOCATION_SETTINGS = 1;
+    private final int REQUEST_LOCATION_SETTINGS = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

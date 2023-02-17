@@ -125,7 +125,7 @@ public class MapsActivity extends AppCompatActivity {
                                     Geocoder geocoder = new Geocoder(MapsActivity.this, Locale.getDefault());
                                     try {
                                         List<Address> addressList = geocoder.getFromLocation(point.latitude, point.longitude, 1);
-                                        placeName.setText("Place name: "+addressList.get(0).getAddressLine(0));
+                                        placeName.setText("Place name: "+addressList.get(0).getSubLocality()+", "+addressList.get(0).getLocality());
                                     } catch (IOException e) {
                                         throw new RuntimeException(e);
                                     }
@@ -165,6 +165,8 @@ public class MapsActivity extends AppCompatActivity {
                                     int indexOfColon = placeNameString.indexOf(":");
                                     String placeName = placeNameString.substring(indexOfColon + 2);
                                     resultIntent.putExtra("place_name", placeName);
+                                    resultIntent.putExtra("latitude", selectedLocation.latitude);
+                                    resultIntent.putExtra("longitude", selectedLocation.longitude);
                                     setResult(RESULT_OK, resultIntent);
                                     finish();
                                 }
@@ -181,5 +183,4 @@ public class MapsActivity extends AppCompatActivity {
             }
         });
     }
-
 }
