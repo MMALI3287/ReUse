@@ -5,14 +5,17 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.reuse.databinding.FragmentItemBinding;
 import com.example.reuse.databinding.FragmentPostBinding;
+import com.google.android.material.textview.MaterialTextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -33,6 +36,8 @@ public class ItemFragment extends Fragment {
     DatabaseReference databaseRef;
     FirebaseUser user;
 
+    MaterialTextView messageButton;
+
 
     public ItemFragment() {
 
@@ -49,6 +54,18 @@ public class ItemFragment extends Fragment {
         user = FirebaseAuth.getInstance().getCurrentUser();
         binding.titleText.setText(post.getTitle());
         databaseRef = FirebaseDatabase.getInstance("https://reuse-20200204-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
+        messageButton = view.findViewById(R.id.messagesText);
+        messageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentChatWindow fragment = new FragmentChatWindow();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
         databaseRef.child(post.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

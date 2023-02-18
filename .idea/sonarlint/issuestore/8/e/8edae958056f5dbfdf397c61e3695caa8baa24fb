@@ -1,0 +1,43 @@
+
+|
+java:S2293Æ"YReplace the type specification in this constructor call with the diamond operator ("<>").(™ºöºýÿÿÿÿ8ÂÝ¶µæ0
+|
+java:S2293Ñ"YReplace the type specification in this constructor call with the diamond operator ("<>").(™ºöºýÿÿÿÿ8ÄÝ¶µæ0
+¨
+java:S1192E"ŠDefine a constant instead of duplicating this literal "https://reuse-20200204-default-rtdb.asia-southeast1.firebasedatabase.app/" 3 times.(™¥Ìº8ÉÝ¶µæ0
+E
+java:S1604L"(Make this anonymous inner class a lambda( ÑÅ„8ÊÝ¶µæ0
+J
+java:S1604^"(Make this anonymous inner class a lambda(ÙÏÔüýÿÿÿÿ8ËÝ¶µæ0
+D
+java:S1604u"(Make this anonymous inner class a lambda(ÜËüW8ËÝ¶µæ0
+F
+java:S1604Ã"(Make this anonymous inner class a lambda(á§àì8ËÝ¶µæ0
+F
+java:S1604¿"(Make this anonymous inner class a lambda(ž´ôé8ËÝ¶µæ0
+e
+java:S2259Ÿ"BA "NullPointerException" could be thrown; "data" is nullable here.(Ìáòýÿÿÿÿ8µÞ¶µæ0
+_
+java:S2259³"BA "NullPointerException" could be thrown; "data" is nullable here.(Ä¾èr8µÞ¶µæ0
+D
+java:S1125a"'Remove the unnecessary boolean literal.(¡âÀç8ÈÞ¶µæ0
+`
+java:S1874y">Remove this use of "startActivityForResult"; it is deprecated.(úŠÛ‚ùÿÿÿÿ8ÐÞ¶µæ0
+Ÿ
+java:S1186Œ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ô°¤¦8ÑÞ¶µæ0
+\
+java:S1874–">Remove this use of "startActivityForResult"; it is deprecated.(´ôÌ¡8ÕÞ¶µæ0
+m
+java:S1874›"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(™­²©ùÿÿÿÿ8ÕÞ¶µæ0
+[
+java:S1874œ"8Remove this use of "onActivityResult"; it is deprecated.(Žß¬©úÿÿÿÿ8ÖÞ¶µæ0
+[
+java:S1172¹"=Remove these unused method parameters "location", "category".(ä‚ö¹8ÛÞ¶µæ0
+c
+java:S1858½"@"getUid" returns a string, there's no need to call "toString()".(ŸŽÅ¯ûÿÿÿÿ8ÜÞ¶µæ0
+^
+java:S1858È"@"getUid" returns a string, there's no need to call "toString()".(¬ÜÒÌ8àÞ¶µæ0
+c
+java:S1858Õ"@"getUid" returns a string, there's no need to call "toString()".(¹Ìôäøÿÿÿÿ8âÞ¶µæ0
+^
+java:S1858Ù"@"getUid" returns a string, there's no need to call "toString()".(˜¶È¬8ãÞ¶µæ0

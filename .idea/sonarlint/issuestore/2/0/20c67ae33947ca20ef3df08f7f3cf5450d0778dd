@@ -1,0 +1,22 @@
+
+J
+java:S1604H"(Make this anonymous inner class a lambda(“åÓ‰úÿÿÿÿ8™Ùôµæ0
+J
+java:S1604O"(Make this anonymous inner class a lambda(õ¨ûÌùÿÿÿÿ8šÙôµæ0
+€	java:S116"dRename this field "REQUEST_LOCATION_SETTINGS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ¦°8ÊÙôµæ0
+>
+java:S1170"!Make this final field static too.(Œ¦°8ĞÙôµæ0
+C	java:S131&""Add a default case to this switch.(øå´¡ÿÿÿÿÿ8äÙôµæ0
+`
+java:S1854:"CRemove this useless assignment to local variable "fragmentManager".(âÏ²¹8ëÙôµæ0
+Q
+java:S1481:"4Remove this unused "fragmentManager" local variable.(âÏ²¹8îÙôµæ0
+P
+java:S1874@".Remove this use of "create"; it is deprecated.(È”™¸ûÿÿÿÿ8ğÙôµæ0
+U
+java:S1874A"3Remove this use of "setPriority"; it is deprecated.(öÅí€şÿÿÿÿ8ğÙôµæ0
+`
+java:S1874A">Remove this use of "PRIORITY_HIGH_ACCURACY"; it is deprecated.(öÅí€şÿÿÿÿ8ğÙôµæ0
+
+java:S1186J"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«ˆü¢8óÙôµæ0
+J	java:S108V")Either remove or fill this block of code.(³ÆÖûúÿÿÿÿ8÷Ùôµæ0
