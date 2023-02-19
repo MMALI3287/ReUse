@@ -92,7 +92,7 @@ public class HomeFragment extends Fragment {
                         else{
                             for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                                 UnfilteredPosts unfilteredPost = dataSnapshot.getValue(UnfilteredPosts.class);
-                                if(unfilteredPost.getTitle().contains(searchEditText.getText().toString())) {
+                                if(unfilteredPost.getTitle().toLowerCase().contains(searchEditText.getText().toString().toLowerCase())) {
                                     if(category.equals("All")){
                                         unfilteredPosts.add(unfilteredPost);
                                     }
@@ -131,9 +131,9 @@ public class HomeFragment extends Fragment {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         unfilteredPosts.clear();
                         String category = autoCompleteTextView.getText().toString();
-                        for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                            UnfilteredPosts unfilteredPost = dataSnapshot.getValue(UnfilteredPosts.class);
-                            if(unfilteredPost.getTitle().contains(searchEditText.getText().toString())) {
+                        if(searchEditText.getText().toString().equals("")){
+                            for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                                UnfilteredPosts unfilteredPost = dataSnapshot.getValue(UnfilteredPosts.class);
                                 if(category.equals("All")){
                                     unfilteredPosts.add(unfilteredPost);
                                 }
@@ -142,6 +142,20 @@ public class HomeFragment extends Fragment {
                                 }
                             }
                         }
+                        else{
+                            for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                                UnfilteredPosts unfilteredPost = dataSnapshot.getValue(UnfilteredPosts.class);
+                                if(unfilteredPost.getTitle().toLowerCase().contains(searchEditText.getText().toString().toLowerCase())) {
+                                    if(category.equals("All")){
+                                        unfilteredPosts.add(unfilteredPost);
+                                    }
+                                    else if(unfilteredPost.getCategory().equals(category)){
+                                        unfilteredPosts.add(unfilteredPost);
+                                    }
+                                }
+                            }
+                        }
+
                         feedAdapter.notifyDataSetChanged();
                     }
 
