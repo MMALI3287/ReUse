@@ -3,8 +3,6 @@ c
 3app/src/main/java/com/example/reuse/GetStarted.java,8\d\8dc9dc7a29ed095901f362b25dda116dbcb44286
 H
 app/google-services.json,f\d\fd8d34b142d02ec743a8efefefd2c097961666e9
-c
-3app/src/main/java/com/example/reuse/SignupPage.java,3\b\3b30665bca5a5e7b6073e0a7e672c9af532307a3
 f
 6app/src/main/java/com/example/reuse/LoginRegister.java,6\7\6739bdd798532b511ed76490bfeec567171c7680
 S
@@ -35,3 +33,17 @@ k
 ;app/src/main/java/com/example/reuse/ListedItemsAdapter.java,a\f\aff79ab2628d4712511e238994a2ea1e8043caf1
 e
 5app/src/main/java/com/example/reuse/HomeFragment.java,2\2\22059034fada57f2c1b795f4480f648c1655dfb7
+d
+4app/src/main/java/com/example/reuse/ChatMessage.java,f\0\f06a3e5afe76c36f09e532fe991e72fd66345642
+a
+1app/src/main/java/com/example/reuse/HomePage.java,2\0\20c67ae33947ca20ef3df08f7f3cf5450d0778dd
+e
+5app/src/main/java/com/example/reuse/ItemFragment.java,7\d\7dd4c81a5c746e5e58d6c26613d9bd84edad30ab
+g
+7app/src/main/java/com/example/reuse/MessageAdapter.java,0\1\0114d535f3c3438158ee7ad2a9ce1abd7afe0aa6
+h
+8app/src/main/java/com/example/reuse/MessageFragment.java,0\b\0b04446057459042735d959acaa93b421f3186ab
+a
+1app/src/main/java/com/example/reuse/Messages.java,6\c\6c35e2a05fcb691c8d32f0dfa91b50dbbdfd48dc
+^
+.app/src/main/java/com/example/reuse/Chats.java,6\1\618eb1a747e0018c0d7f295e78668c466fda8414
