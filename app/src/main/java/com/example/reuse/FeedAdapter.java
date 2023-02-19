@@ -39,7 +39,11 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         UnfilteredPosts unfilteredPost = unfilteredPosts.get(position);
-        Picasso.get().load(unfilteredPost.getImages().getImage1()).into(holder.cardImage);
+        try {
+            Picasso.get().load(unfilteredPost.getImages().getImage1()).into(holder.cardImage);
+        }catch (Exception e){
+
+        }
         holder.cardTitleText.setText(unfilteredPost.getTitle());
         holder.cardTimeText.setText(timeCalc(unfilteredPost.getTime()));
         holder.parent.setOnClickListener(new View.OnClickListener() {
