@@ -27,8 +27,6 @@ d
 4app/src/main/java/com/example/reuse/ChatAdapter.java,a\b\abcaeb81f9033717fc0b058ca55a2fca97c9fc06
 h
 8app/src/main/java/com/example/reuse/ProfileFragment.java,0\1\01ac58e30b7fbccc24bb7355963a87e740305295
-d
-4app/src/main/java/com/example/reuse/FeedAdapter.java,4\a\4aede89a7d720364f90ad3a9690836436c1529f5
 k
 ;app/src/main/java/com/example/reuse/ListedItemsAdapter.java,a\f\aff79ab2628d4712511e238994a2ea1e8043caf1
 e
@@ -47,3 +45,13 @@ a
 1app/src/main/java/com/example/reuse/Messages.java,6\c\6c35e2a05fcb691c8d32f0dfa91b50dbbdfd48dc
 ^
 .app/src/main/java/com/example/reuse/Chats.java,6\1\618eb1a747e0018c0d7f295e78668c466fda8414
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+c
+3app/src/main/java/com/example/reuse/SignupPage.java,3\b\3b30665bca5a5e7b6073e0a7e672c9af532307a3
+e
+5app/src/main/java/com/example/reuse/MapsActivity.java,9\1\9161f9024d21579fffd037bed607b08cc41ee567
+e
+5app/src/main/java/com/example/reuse/PostFragment.java,8\e\8edae958056f5dbfdf397c61e3695caa8baa24fb
+d
+4app/src/main/java/com/example/reuse/FeedAdapter.java,4\a\4aede89a7d720364f90ad3a9690836436c1529f5
