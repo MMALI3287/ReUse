@@ -23,16 +23,10 @@ _
 .app/src/main/java/com/example/reuse/Posts.java,1\3\138bd02d6c7d93e2ce5a58187ef7056278e61c5c
 b
 2app/src/main/java/com/example/reuse/LoginPage.java,9\d\9d84e859cfe8053cfe6852b3ecb6d848334fabc7
-e
-5app/src/main/java/com/example/reuse/MapsActivity.java,9\1\9161f9024d21579fffd037bed607b08cc41ee567
 l
 <app/src/main/java/com/example/reuse/EditProfileFragment.java,f\c\fcfd2a19e32789301e2fe14278a634642022d58c
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 d
 4app/src/main/java/com/example/reuse/ChatAdapter.java,a\b\abcaeb81f9033717fc0b058ca55a2fca97c9fc06
-e
-5app/src/main/java/com/example/reuse/PostFragment.java,8\e\8edae958056f5dbfdf397c61e3695caa8baa24fb
 h
 8app/src/main/java/com/example/reuse/ProfileFragment.java,0\1\01ac58e30b7fbccc24bb7355963a87e740305295
 d
@@ -41,11 +35,3 @@ k
 ;app/src/main/java/com/example/reuse/ListedItemsAdapter.java,a\f\aff79ab2628d4712511e238994a2ea1e8043caf1
 e
 5app/src/main/java/com/example/reuse/HomeFragment.java,2\2\22059034fada57f2c1b795f4480f648c1655dfb7
-a
-1app/src/main/java/com/example/reuse/HomePage.java,2\0\20c67ae33947ca20ef3df08f7f3cf5450d0778dd
-e
-5app/src/main/java/com/example/reuse/ItemFragment.java,7\d\7dd4c81a5c746e5e58d6c26613d9bd84edad30ab
-d
-4app/src/main/java/com/example/reuse/ChatMessage.java,f\0\f06a3e5afe76c36f09e532fe991e72fd66345642
-k
-;app/src/main/java/com/example/reuse/FragmentChatWindow.java,7\5\756d82e248e28d3ce9ea14c48ea4781038c2411b

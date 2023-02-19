@@ -19,7 +19,7 @@
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             android:src="@drawable/profile_picture_placeholder"
-            app:shapeAppearanceOverlay="@style/roundedImageView" />
+            app:shapeAppearanceOverlay="@style/roundedImageView2" />
 
         <TextView
             android:id="@+id/profileNameText"

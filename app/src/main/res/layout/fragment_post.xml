@@ -61,7 +61,7 @@
             android:id="@+id/locationText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Location"
+            android:text=" "
             android:layout_below="@+id/photos"
             android:layout_marginTop="8dp"
             />
@@ -85,7 +85,7 @@
                 android:id="@+id/locationTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Location"
+                android:text="Location: "
                 android:textSize="16sp"
                 android:layout_below="@+id/locationText" />
             <TextView

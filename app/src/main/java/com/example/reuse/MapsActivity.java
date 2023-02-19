@@ -95,13 +95,7 @@ public class MapsActivity extends AppCompatActivity {
 
     private void getMyLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+
             return;
         }
         Task<Location> task = fusedLocationClient.getLastLocation();
@@ -116,6 +110,16 @@ public class MapsActivity extends AppCompatActivity {
                             MarkerOptions markerOptions = new MarkerOptions().position(selectedLocation).title("Your Selected Location");
                             marker=googleMap.addMarker(markerOptions);
                             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(selectedLocation, 16));
+                            lat.setText("Latitude:\n"+selectedLocation.latitude);
+                            lng.setText("Longitude:\n"+selectedLocation.longitude);
+                            Geocoder geocoder = new Geocoder(MapsActivity.this, Locale.getDefault());
+                            List<Address> addressList = null;
+                            try {
+                                addressList = geocoder.getFromLocation(selectedLocation.latitude, selectedLocation.longitude, 1);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            placeName.setText("Place name: "+addressList.get(0).getAddressLine(0));
                             googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                                 @SuppressLint("SetTextI18n")
                                 @Override
@@ -125,7 +129,7 @@ public class MapsActivity extends AppCompatActivity {
                                     Geocoder geocoder = new Geocoder(MapsActivity.this, Locale.getDefault());
                                     try {
                                         List<Address> addressList = geocoder.getFromLocation(point.latitude, point.longitude, 1);
-                                        placeName.setText("Place name: "+addressList.get(0).getSubLocality()+", "+addressList.get(0).getLocality());
+                                        placeName.setText("Place name: "+addressList.get(0).getAddressLine(0));
                                     } catch (IOException e) {
                                         throw new RuntimeException(e);
                                     }

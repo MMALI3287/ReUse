@@ -29,7 +29,8 @@
             android:label="@string/title_activity_maps" />
         <activity
             android:name=".HomePage"
-            android:exported="false">
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

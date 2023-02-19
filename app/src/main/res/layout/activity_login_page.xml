@@ -42,9 +42,9 @@
         android:layout_height="48dp"
         android:shape="rectangle"
         android:layout_below="@+id/textView3"
-        android:background="@drawable/edit_text_bg"
+        android:background="@drawable/edit_text_border"
         android:layout_marginTop="10dp"
-        android:padding="12dp"
+        android:paddingLeft="12dp"
         android:hint="example@gmail.com"
         android:inputType="textEmailAddress" />
     <EditText
@@ -53,47 +53,21 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:shape="rectangle"
-        android:padding="12dp"
+        android:paddingLeft="12dp"
         android:layout_below="@+id/textView4"
-        android:background="@drawable/edit_text_bg"
+        android:background="@drawable/edit_text_border"
         android:layout_marginTop="10dp"
         android:hint="Enter your password"
         android:inputType="textPassword"
         />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_below="@+id/password"
-        android:text="Remember Me" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="#E86969"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/password"
-        android:layout_alignParentEnd="true"
-        android:text="Forgot Password?" />
-
-
-    <ImageView
-        android:id="@+id/loginFB"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_below="@+id/imageView8"
-        android:layout_marginTop="30dp"
-        app:srcCompat="@drawable/login_with_facebook" />
 
     <ImageView
         android:id="@+id/loginGoogle"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_below="@+id/loginFB"
+        android:layout_below="@+id/imageView8"
         android:layout_marginTop="20dp"
         app:srcCompat="@drawable/login_with_google" />
 
@@ -127,8 +101,8 @@
         android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_below="@+id/checkBox"
-        android:layout_marginTop="10dp"
+        android:layout_below="@+id/password"
+        android:layout_marginTop="20dp"
         app:srcCompat="@drawable/login_button" />
 
     <ImageView

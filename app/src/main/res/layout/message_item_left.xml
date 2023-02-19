@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/profile_picture_placeholder"
+        app:shapeAppearanceOverlay="@style/roundedImageView3"
+        android:scaleType="centerCrop"/>
+    <TextView
+        android:id="@+id/messageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/image"
+        android:text="MESSSAGE HERE"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="6dp"
+        android:padding="6dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/rounded_corner"/>
+</RelativeLayout>

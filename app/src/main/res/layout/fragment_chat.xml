@@ -9,17 +9,23 @@
         android:layout_height="match_parent">
         <TextView
             android:id="@+id/messagesText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Messages"
             android:textSize="28sp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:background="@color/gray"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/messagesText"/>
+            android:layout_below="@+id/messagesText"
+            android:layout_margin="4dp"/>
     </RelativeLayout>
 
 </FrameLayout>

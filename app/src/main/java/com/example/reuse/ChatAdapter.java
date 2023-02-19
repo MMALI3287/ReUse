@@ -1,101 +1,114 @@
 package com.example.reuse;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
-public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
-    private List<ChatMessage> mChatMessages;
+import java.util.ArrayList;
 
-    public ChatAdapter(List<ChatMessage> messages) {
-        mChatMessages = messages;
+public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder>{
+    Context context;
+    ArrayList<Chats> chats;
+    FirebaseUser user;
+    DatabaseReference databaseRef;
+    DatabaseReference databaseRefChat;
+    public ChatAdapter(Context context,ArrayList<Chats> chats){
+        this.context = context;
+        this.chats = chats;
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        databaseRef = FirebaseDatabase.getInstance("https://reuse-20200204-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
+        databaseRefChat = FirebaseDatabase.getInstance("https://reuse-20200204-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Chats");
     }
 
+    @NonNull
+    @Override
+    public ChatAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(context).inflate(R.layout.chat_item,parent,false);
+        return new ChatAdapter.MyViewHolder(v);
+    }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView senderNameTextView;
-        public TextView messageTextView;
-        public TextView timestampTextView;
+    @Override
+    public void onBindViewHolder(@NonNull ChatAdapter.MyViewHolder holder, int position) {
+        String url = chats.get(position).getPostImageUrl();
+        Picasso.get().load(url).into(holder.image);
+        holder.titleText.setText(chats.get(position).getTitle());
+        String messageSenderId = chats.get(position).getMessageSenderId();
+        String posterId = chats.get(position).getPosterId();
+        if(!messageSenderId.equals(user.getUid())){
+            databaseRef.child(messageSenderId).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    String name = String.valueOf(snapshot.child("displayName").getValue());
+                    holder.nameText.setText(name);
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
-        public ViewHolder(View itemView) {
-            super(itemView);
-
-            senderNameTextView = itemView.findViewById(R.id.sender_name_text_view);
-            messageTextView = itemView.findViewById(R.id.message_text_view);
-            timestampTextView = itemView.findViewById(R.id.timestamp_text_view);
+                }
+            });
         }
-    }
+        else
+        {
+            databaseRef.child(posterId).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    String name = String.valueOf(snapshot.child("displayName").getValue());
+                    holder.nameText.setText(name);
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
-    @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_chat_window, parent, false);
-        return new ViewHolder(itemView);
-    }
-
-    @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        ChatMessage message = mChatMessages.get(position);
-
-        holder.senderNameTextView.setText(message.getSenderName());
-        holder.messageTextView.setText(message.getMessageText());
-        holder.timestampTextView.setText(formatTimestamp(message.getTimestamp()));
+                }
+            });
+        }
+        holder.parent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = ((AppCompatActivity)context).getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.frame, new MessageFragment(chats.get(position).getPostId()+chats.get(position).getMessageSenderId()), null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("theFragment")
+                        .commit();
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return mChatMessages.size();
-    }
-    public void addChatMessage(ChatMessage chatMessage) {
-        mChatMessages.add(chatMessage);
-        notifyItemInserted(mChatMessages.size() - 1);
+        return chats.size();
     }
 
-    public void clearChatMessages() {
-        int size = mChatMessages.size();
-        mChatMessages.clear();
-        notifyItemRangeRemoved(0, size);
-    }
-    private String formatTimestamp(long timestamp) {
-        DateFormat dateFormat = SimpleDateFormat.getTimeInstance(SimpleDateFormat.SHORT, Locale.getDefault());
-        return dateFormat.format(new Date(timestamp));
-    }
-    public static class ChatViewHolder extends RecyclerView.ViewHolder {
-
-        private TextView mUsernameTextView;
-        private TextView mMessageTextView;
-        private TextView mTimestampTextView;
-
-        public ChatViewHolder(@NonNull View itemView) {
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
+        ImageView image;
+        TextView nameText;
+        TextView titleText;
+        CardView parent;
+        public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            mUsernameTextView = itemView.findViewById(R.id.sender_name_text_view);
-            mMessageTextView = itemView.findViewById(R.id.message_text_view);
-            mTimestampTextView = itemView.findViewById(R.id.timestamp_text_view);
-        }
-
-        public void bind(ChatMessage chatMessage) {
-            mUsernameTextView.setText(chatMessage.getSenderName());
-            mMessageTextView.setText(chatMessage.getMessageText());
-            mTimestampTextView.setText(formatTimestamp(chatMessage.getTimestamp()));
-        }
-
-        private String formatTimestamp(long timestamp) {
-            // Format timestamp as desired
-            return System.currentTimeMillis() - timestamp < 1000 * 60 * 60 * 24
-                    ? DateFormat.getTimeInstance(DateFormat.SHORT).format(new Date(timestamp))
-                    : DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(new Date(timestamp));
+            image = itemView.findViewById(R.id.image);
+            nameText = itemView.findViewById(R.id.nameText);
+            titleText = itemView.findViewById(R.id.titleText);
+            parent = itemView.findViewById(R.id.parent);
         }
     }
 }
-
