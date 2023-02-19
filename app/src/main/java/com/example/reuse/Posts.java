@@ -7,6 +7,35 @@ public class Posts {
     String title;
     Images images;
     String postId;
+    String time;
+    String location;
+    String category;
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+
 
     public String getPostId() {
         return postId;

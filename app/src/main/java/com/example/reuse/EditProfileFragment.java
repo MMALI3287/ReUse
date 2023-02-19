@@ -72,6 +72,19 @@ public class EditProfileFragment extends Fragment {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String name = displayNameEditText.getText().toString();
+                if(name.equals("")){
+                    Toast.makeText(getContext(), "Display name can't be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(!isAlpha(name)){
+                    Toast.makeText(getContext(), "Display name should contain only letters", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(name.length()<5){
+                    Toast.makeText(getContext(), "Display name too short", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if(imageSelected == true){
                     uploadImageToFirebase(uri);
                 }
@@ -146,6 +159,18 @@ public class EditProfileFragment extends Fragment {
 
             }
         });
+    }
+
+    public boolean isAlpha(String name) {
+        char[] chars = name.toCharArray();
+
+        for (char c : chars) {
+            if(!Character.isLetter(c) && c!=' ') {
+                return false;
+            }
+        }
+
+        return true;
     }
 
 }

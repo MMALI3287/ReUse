@@ -44,6 +44,7 @@ public class ListedItemsAdapter extends RecyclerView.Adapter<ListedItemsAdapter.
         Posts post = posts.get(position);
         Picasso.get().load(post.getImages().getImage1()).into(holder.cardImage);
         holder.cardTitleText.setText(post.getTitle());
+        holder.cardTimeText.setText(timeCalc(post.getTime()));
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,7 +71,6 @@ public class ListedItemsAdapter extends RecyclerView.Adapter<ListedItemsAdapter.
         ImageView cardImage;
         TextView cardTitleText;
         TextView cardTimeText;
-        TextView cardLocationText;
         ImageView deleteButton;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -79,8 +79,34 @@ public class ListedItemsAdapter extends RecyclerView.Adapter<ListedItemsAdapter.
             cardImage = itemView.findViewById(R.id.cardImage);
             cardTitleText = itemView.findViewById(R.id.cardTitleText);
             cardTimeText = itemView.findViewById(R.id.cardTimeText);
-            cardLocationText = itemView.findViewById(R.id.cardLocationText);
             deleteButton = itemView.findViewById(R.id.deleteButton);
         }
+    }
+
+    public String timeCalc(String time){
+        long current= System.currentTimeMillis();
+        long given = Long.parseLong(time);
+        long diff = current - given;
+        long diffSeconds = diff / 1000;
+        long diffMinutes = diffSeconds / 60;
+        long diffHours = diffMinutes / 60;
+        long diffDays = diffHours / 24;
+        long diffWeeks = diffDays / 7;
+        long diffMonths = diffDays / 30;
+        long diffYears = diffDays / 365;
+        if (diffYears > 0)
+            return diffYears + " years ago";
+        else if (diffMonths > 0)
+            return diffMonths + " months ago";
+        else if (diffWeeks > 0)
+            return diffWeeks + " weeks ago";
+        else if (diffDays > 0)
+            return diffDays + " days ago";
+        else if (diffHours > 0)
+            return diffHours + " hours ago";
+        else if (diffMinutes > 0)
+            return diffMinutes + " minutes ago";
+        else
+            return "Just now";
     }
 }

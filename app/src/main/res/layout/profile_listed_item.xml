@@ -26,23 +26,14 @@
             android:textSize="24sp"
             android:textColor="@color/black"
             android:layout_marginLeft="4dp"
-            android:layout_toRightOf="@+id/cardImage" />
-        <TextView
-            android:id="@+id/cardLocationText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hatirjheel,Dhaka"
-            android:textSize="16sp"
-            android:textColor="@color/black"
+            android:layout_marginTop="8dp"
             android:layout_toRightOf="@+id/cardImage"
-            android:layout_below="@+id/cardTitleText"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="4dp"/>
+            android:layout_toLeftOf="@id/deleteButton"/>
         <TextView
             android:id="@+id/cardTimeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2 Hours Ago"
+            android:text="JUST NOW"
             android:textSize="20sp"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="104dp"

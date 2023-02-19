@@ -24,7 +24,6 @@
             android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold" />
-
         <EditText
             android:id="@+id/searchEditText"
             android:layout_width="match_parent"
@@ -35,20 +34,29 @@
             android:hint="Search"
             android:paddingLeft="12dp"/>
 
-        <TextView
-            android:id="@+id/t2"
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/categorySpinner"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:fontFamily="sans-serif-medium"
-            android:text="20Km"
-            android:textColor="#4CAF50"
-            android:textSize="16sp" />
+            android:hint="Category"
+            android:layout_below="@+id/searchEditText"
+            android:layout_marginTop="8dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            >
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/filled_exposed"
+                android:inputType="none"
+                android:text="All">
+
+            </AutoCompleteTextView>
+        </com.google.android.material.textfield.TextInputLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/searchEditText"
+            android:layout_below="@+id/categorySpinner"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             />
