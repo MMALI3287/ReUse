@@ -2,6 +2,7 @@ package com.example.reuse;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -9,12 +10,17 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,6 +59,10 @@ public class PostFragment extends Fragment {
     StorageReference storageReference;
     private static final int REQUEST_LOCATION_SETTINGS = 23;
 
+    AutoCompleteTextView autoCompleteTextView;
+    ProgressDialog progressDialog;
+    int progress = 0;
+
 
 
     @Override
@@ -71,6 +81,15 @@ public class PostFragment extends Fragment {
         databaseRefUnfilteredPost = FirebaseDatabase.getInstance("https://reuse-20200204-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("UnfilteredPosts");
         storageReference = FirebaseStorage.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
+
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setTitle("Uploading");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.setCancelable(false);
+        progressDialog.setMax(100);
+
+
         imageUris = new ArrayList<>();
         load();
         binding.addPhotosButton.setOnClickListener(new View.OnClickListener() {
@@ -98,9 +117,18 @@ public class PostFragment extends Fragment {
                     Toast.makeText(getContext(), "Include atleast 1 Image", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(binding.locationTextView.getText().toString().equals("Edit your location")){
+                    Toast.makeText(getContext(), "Include your location", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(autoCompleteTextView.getText().toString().equals("")){
+                    Toast.makeText(getContext(), "Select Category", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 String title = binding.titleEditText.getText().toString();
                 String description = binding.descriptionEditText.getText().toString();
-                String category="football";
+                String category=autoCompleteTextView.getText().toString();
                 String location=binding.locationTextView.getText().toString();
                 if(title.length()<3){
                     Toast.makeText(getContext(), "Title too short", Toast.LENGTH_SHORT).show();
@@ -121,6 +149,12 @@ public class PostFragment extends Fragment {
                 startActivityForResult(intent,REQUEST_LOCATION_SETTINGS);
             }
         });
+        String[] type = new String[]{"Tools","Furniture","Household","Garden","Appliances","Books","Video Games","Electronics","Clothing","Toys"};
+        ArrayAdapter<String> adapter= new ArrayAdapter<>(getContext(), R.layout.drop_down_item, type);
+        autoCompleteTextView = binding.filledExposed;
+        autoCompleteTextView.setAdapter(adapter);
+
+
     }
 
     public void load(){
@@ -179,12 +213,33 @@ public class PostFragment extends Fragment {
             String finalPlaceName = data.getStringExtra("place_name");
 
             Toast.makeText(getActivity(), finalPlaceName, Toast.LENGTH_SHORT).show();
-            binding.locationTextView.setText("Location: "+finalPlaceName);
+            binding.locationTextView.setText(finalPlaceName);
         }
     }
     private void uploadToFirebase(ArrayList<Uri> imageUris,String title,String description,String location,String category) {
         int i=1;
         long postId = System.currentTimeMillis();
+        progressDialog.show();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(progressDialog.getProgress() <progressDialog.getMax()){
+                    try{
+                        Thread.sleep(200);
+                        System.out.println("!!!!!!!!!!!!!!       IN WHILE !!");
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+                System.out.println("!!!!!!!!!!!!!!       Exited WHILE !!");
+                progressDialog.dismiss();
+                FragmentManager fragmentManager = ((AppCompatActivity)getContext()).getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.frame, new PostFragment(), null)
+                        .setReorderingAllowed(true)
+                        .commit();
+            }
+        }).start();
         for(Uri imageUri:imageUris){
             StorageReference fileRef = storageReference.child("PostImages/"+FirebaseAuth.getInstance().getCurrentUser().getUid().toString()+"/"+postId+"/image"+i);
             int finalI = i;
@@ -199,6 +254,8 @@ public class PostFragment extends Fragment {
                             map.put("image"+ finalI,uri.toString());
                             databaseRefPost.child(user.getUid().toString()).child(String.valueOf(postId)).child("images").updateChildren(map);
                             databaseRefUnfilteredPost.child(String.valueOf(postId)).child("images").updateChildren(map);
+                            progress++;
+                            progressDialog.setProgress(100 * progress/imageUris.size());
                         }
                     });
 
@@ -212,8 +269,9 @@ public class PostFragment extends Fragment {
         map.put("imageCount",String.valueOf(imageUris.size()));
         map.put("uid",user.getUid().toString());
         map.put("postId",String.valueOf(postId));
-        map.put("time",System.currentTimeMillis());
-        map.put("location",String.valueOf(postId));
+        map.put("time",String.valueOf(System.currentTimeMillis()));
+        map.put("location",location);
+        map.put("category",category);
         databaseRefPost.child(user.getUid().toString()).child(String.valueOf(postId)).updateChildren(map);
         databaseRefUnfilteredPost.child(String.valueOf(postId)).updateChildren(map);
 

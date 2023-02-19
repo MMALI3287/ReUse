@@ -43,16 +43,6 @@
         android:layout_below="@id/username"   />
 
     <EditText
-        android:id="@+id/phone"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="Enter Your Phone Number"
-        android:background="@drawable/edit_text_border"
-        android:layout_marginTop="20dp"
-        android:textSize="17sp"
-        android:paddingLeft="12dp"
-        android:layout_below="@id/email"    />
-    <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -61,7 +51,7 @@
         android:layout_marginTop="20dp"
         android:textSize="17sp"
         android:paddingLeft="12dp"
-        android:layout_below="@id/phone"   />
+        android:layout_below="@id/email"   />
 
     <ImageView
         android:id="@+id/signup"
@@ -100,20 +90,37 @@
 
 
     <ImageView
-        android:id="@+id/imageView14"
+        android:id="@+id/signupGoogle"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_below="@+id/i3"
         android:layout_marginTop="15dp"
-        app:srcCompat="@drawable/signup_with_google" />
+        app:srcCompat="@drawable/signup_with_google"
+        android:layout_marginBottom="8dp"/>
 
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView14"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/alredy_account_login" />
+        android:layout_below="@id/signupGoogle"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/already"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/already"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            />
+        <TextView
+            android:id="@+id/loginTextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/com_facebook_blue"
+            android:layout_marginLeft="8dp"/>
+    </LinearLayout>
 
 </RelativeLayout>

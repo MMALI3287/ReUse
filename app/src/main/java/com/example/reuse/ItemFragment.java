@@ -57,6 +57,8 @@ public class ItemFragment extends Fragment {
             binding.messageButton.setVisibility(View.INVISIBLE);
         }
         binding.titleText.setText(post.getTitle());
+        binding.timeText.setText(timeCalc(post.getTime()));
+        binding.locationText.setText(post.getLocation());
         databaseRef = FirebaseDatabase.getInstance("https://reuse-20200204-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users");
         databaseRefChat = FirebaseDatabase.getInstance("https://reuse-20200204-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Chats");
         databaseRef.child(post.getUid()).addValueEventListener(new ValueEventListener() {
@@ -116,6 +118,33 @@ public class ItemFragment extends Fragment {
         });
 
 
+    }
+
+    public String timeCalc(String time){
+        long current= System.currentTimeMillis();
+        long given = Long.parseLong(time);
+        long diff = current - given;
+        long diffSeconds = diff / 1000;
+        long diffMinutes = diffSeconds / 60;
+        long diffHours = diffMinutes / 60;
+        long diffDays = diffHours / 24;
+        long diffWeeks = diffDays / 7;
+        long diffMonths = diffDays / 30;
+        long diffYears = diffDays / 365;
+        if (diffYears > 0)
+            return diffYears + " years ago";
+        else if (diffMonths > 0)
+            return diffMonths + " months ago";
+        else if (diffWeeks > 0)
+            return diffWeeks + " weeks ago";
+        else if (diffDays > 0)
+            return diffDays + " days ago";
+        else if (diffHours > 0)
+            return diffHours + " hours ago";
+        else if (diffMinutes > 0)
+            return diffMinutes + " minutes ago";
+        else
+            return "Just now";
     }
 
     @Override

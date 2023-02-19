@@ -29,14 +29,15 @@
             android:layout_below="@+id/cardImage" />
 
         <TextView
-            android:id="@+id/cardLocationText"
+            android:id="@+id/cardTimeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/cardTitleText"
-            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/poppins"
-            android:text="Hatirjheel,Dhaka"
+            android:text="JUST NOW"
+            android:layout_alignRight="@+id/cardImage"
             android:textColor="@color/black"
             android:textSize="12sp" />
 

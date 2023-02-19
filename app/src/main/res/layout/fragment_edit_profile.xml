@@ -14,7 +14,7 @@
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         android:src="@drawable/profile_picture_placeholder"
-        app:shapeAppearanceOverlay="@style/roundedImageView"
+        app:shapeAppearanceOverlay="@style/roundedImageView2"
         />
     <com.google.android.material.button.MaterialButton
         android:id="@+id/changeProfileImageButton"

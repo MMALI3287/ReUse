@@ -51,7 +51,7 @@ public class MapsActivity extends AppCompatActivity {
     GoogleMap googleMap;
     private EditText searchBar;
     private Button searchBtn, returnBtn;
-    private TextView lat, lng,placeName;
+    private TextView placeName;
 
     private LatLng selectedLocation;
 
@@ -66,8 +66,6 @@ public class MapsActivity extends AppCompatActivity {
         searchBar = findViewById(R.id.search_bar);
         searchBtn = findViewById(R.id.search_button);
         returnBtn = findViewById(R.id.return_button);
-        lat = findViewById(R.id.latitude);
-        lng = findViewById(R.id.longitude);
         placeName = findViewById(R.id.place_name);
 
         Dexter.withContext(getApplicationContext())
@@ -110,8 +108,6 @@ public class MapsActivity extends AppCompatActivity {
                             MarkerOptions markerOptions = new MarkerOptions().position(selectedLocation).title("Your Selected Location");
                             marker=googleMap.addMarker(markerOptions);
                             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(selectedLocation, 16));
-                            lat.setText("Latitude:\n"+selectedLocation.latitude);
-                            lng.setText("Longitude:\n"+selectedLocation.longitude);
                             Geocoder geocoder = new Geocoder(MapsActivity.this, Locale.getDefault());
                             List<Address> addressList = null;
                             try {
@@ -124,8 +120,6 @@ public class MapsActivity extends AppCompatActivity {
                                 @SuppressLint("SetTextI18n")
                                 @Override
                                 public void onMapClick(LatLng point) {
-                                    lat.setText("Latitude:\n"+point.latitude);
-                                    lng.setText("Longitude:\n"+point.longitude);
                                     Geocoder geocoder = new Geocoder(MapsActivity.this, Locale.getDefault());
                                     try {
                                         List<Address> addressList = geocoder.getFromLocation(point.latitude, point.longitude, 1);
@@ -146,8 +140,6 @@ public class MapsActivity extends AppCompatActivity {
                                             List<Address> addressList = geocoder.getFromLocationName(location, 1);
                                             if (addressList.size() > 0) {
                                                 LatLng point = new LatLng( addressList.get(0).getLatitude(),  addressList.get(0).getLongitude());
-                                                lat.setText("Latitude:\n"+point.latitude);
-                                                lng.setText("Longitude:\n"+point.longitude);
                                                 placeName.setText("Place name: "+addressList.get(0).getAddressLine(0));
                                                 marker.setPosition(new LatLng(point.latitude, point.longitude));
                                                 googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(point, 16));

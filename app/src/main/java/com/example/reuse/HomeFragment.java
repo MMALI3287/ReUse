@@ -9,9 +9,15 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,7 +32,9 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
     DatabaseReference databaseReference;
     FeedAdapter feedAdapter;
+    AutoCompleteTextView autoCompleteTextView;
     ArrayList<UnfilteredPosts> unfilteredPosts;
+    EditText searchEditText;
     public HomeFragment() {
 
     }
@@ -37,7 +45,7 @@ public class HomeFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView);
         databaseReference = FirebaseDatabase.getInstance("https://reuse-20200204-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("UnfilteredPosts");
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
-
+        searchEditText = view.findViewById(R.id.searchEditText);
         unfilteredPosts = new ArrayList<>();
         feedAdapter = new FeedAdapter(getContext(),unfilteredPosts);
         recyclerView.setAdapter(feedAdapter);
@@ -55,6 +63,92 @@ public class HomeFragment extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+        String[] type = new String[]{"All","Tools","Furniture","Household","Garden","Appliances","Books","Video Games","Electronics","Clothing","Toys"};
+        ArrayAdapter<String> adapter= new ArrayAdapter<>(getContext(), R.layout.drop_down_item, type);
+        autoCompleteTextView = view.findViewById(R.id.filled_exposed);
+        autoCompleteTextView.setAdapter(adapter);
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        unfilteredPosts.clear();
+                        String category = adapterView.getItemAtPosition(i).toString();
+                        if(searchEditText.getText().toString().equals("")){
+                            for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                                UnfilteredPosts unfilteredPost = dataSnapshot.getValue(UnfilteredPosts.class);
+                                if(category.equals("All")){
+                                    unfilteredPosts.add(unfilteredPost);
+                                }
+                                else if(unfilteredPost.getCategory().equals(category)){
+                                    unfilteredPosts.add(unfilteredPost);
+                                }
+                            }
+                        }
+                        else{
+                            for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                                UnfilteredPosts unfilteredPost = dataSnapshot.getValue(UnfilteredPosts.class);
+                                if(unfilteredPost.getTitle().contains(searchEditText.getText().toString())) {
+                                    if(category.equals("All")){
+                                        unfilteredPosts.add(unfilteredPost);
+                                    }
+                                    else if(unfilteredPost.getCategory().equals(category)){
+                                        unfilteredPosts.add(unfilteredPost);
+                                    }
+                                }
+                            }
+                        }
+
+                        feedAdapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        });
+        searchEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        unfilteredPosts.clear();
+                        String category = autoCompleteTextView.getText().toString();
+                        for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                            UnfilteredPosts unfilteredPost = dataSnapshot.getValue(UnfilteredPosts.class);
+                            if(unfilteredPost.getTitle().contains(searchEditText.getText().toString())) {
+                                if(category.equals("All")){
+                                    unfilteredPosts.add(unfilteredPost);
+                                }
+                                else if(unfilteredPost.getCategory().equals(category)){
+                                    unfilteredPosts.add(unfilteredPost);
+                                }
+                            }
+                        }
+                        feedAdapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
         });
     }
