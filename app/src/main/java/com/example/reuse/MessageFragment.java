@@ -45,6 +45,9 @@ public class MessageFragment extends Fragment {
     ArrayList<Messages> messages;
     String ownImageUrl;
     String otherImageUrl;
+    volatile boolean flag1 = false;
+    volatile boolean flag2 = false;
+    volatile boolean loaded = false;
     public MessageFragment(String chatId) {
         this.chatId = chatId;
     }
@@ -77,6 +80,10 @@ public class MessageFragment extends Fragment {
                             binding.senderText.setText(String.valueOf(snapshot.child("displayName").getValue()));
                             otherImageUrl = String.valueOf(snapshot.child("profilePhotoUrl").getValue());
                         }
+                        System.out.println("!!!!!!!!!!!!!!!!!!     COMPLETED1");
+                        flag1 = true;
+                        if(!loaded)
+                            loadAdapter();
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
@@ -93,8 +100,11 @@ public class MessageFragment extends Fragment {
                             binding.senderText.setText(String.valueOf(snapshot.child("displayName").getValue()));
                             otherImageUrl = String.valueOf(snapshot.child("profilePhotoUrl").getValue());
                         }
+                        System.out.println("!!!!!!!!!!!!!!!!!!     COMPLETED2");
+                        flag2 = true;
+                        if(!loaded)
+                            loadAdapter();
 
-                        loadAdapter();
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
@@ -123,10 +133,14 @@ public class MessageFragment extends Fragment {
                 binding.messageEditText.setText("");
             }
         });
-
-
     }
     public void loadAdapter(){
+        if(flag1==false || flag2==false){
+            System.out.println("!!!!!!!!!!!!!!!!!!!!! FALSE      !!");
+            return;
+        }
+        loaded = true;
+        System.out.println("!!!!!!!!!!!!!!!!!!!  LOADING ADAPTER   !!");
         messages = new ArrayList<>();
         messageAdapter = new MessageAdapter(getContext(),messages,ownImageUrl,otherImageUrl);
         binding.messageRecyclerView.setAdapter(messageAdapter);

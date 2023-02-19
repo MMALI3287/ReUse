@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.CallbackManager;
@@ -49,9 +50,9 @@ public class LoginPage extends AppCompatActivity {
     ImageView login;
 
     ImageView btnGoogle;
-    ImageView btnFacebook;
     GoogleSignInOptions options;
     GoogleSignInClient client;
+    TextView signTextButton;
 
     private FirebaseAuth auth;
     private DatabaseReference databaseRef;
@@ -67,6 +68,16 @@ public class LoginPage extends AppCompatActivity {
         password = findViewById(R.id.password);
         login = findViewById(R.id.login);
         btnGoogle = findViewById(R.id.loginGoogle);
+        signTextButton = findViewById(R.id.signTextButton);
+
+        signTextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginPage.this, SignupPage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         auth = FirebaseAuth.getInstance();
 
