@@ -53,6 +53,7 @@ public class HomeFragment extends Fragment {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                unfilteredPosts.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     UnfilteredPosts unfilteredPost = dataSnapshot.getValue(UnfilteredPosts.class);
                     unfilteredPosts.add(unfilteredPost);
