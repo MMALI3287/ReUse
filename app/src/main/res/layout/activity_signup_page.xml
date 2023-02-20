@@ -49,6 +49,7 @@
         android:hint="Enter Your Password"
         android:background="@drawable/edit_text_border"
         android:layout_marginTop="20dp"
+        android:inputType="textPassword"
         android:textSize="17sp"
         android:paddingLeft="12dp"
         android:layout_below="@id/email"   />

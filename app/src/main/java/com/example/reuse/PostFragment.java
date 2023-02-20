@@ -149,7 +149,7 @@ public class PostFragment extends Fragment {
                 startActivityForResult(intent,REQUEST_LOCATION_SETTINGS);
             }
         });
-        String[] type = new String[]{"Tools","Furniture","Household","Garden","Appliances","Books","Video Games","Electronics","Clothing","Toys"};
+        String[] type = new String[]{"Tools","Furniture","Appliances","Books","Video Games","Electronics","Clothing","Bags","Toys","Electronics","Mobile Phones","Antiques","Miscellaneous"};
         ArrayAdapter<String> adapter= new ArrayAdapter<>(getContext(), R.layout.drop_down_item, type);
         autoCompleteTextView = binding.filledExposed;
         autoCompleteTextView.setAdapter(adapter);

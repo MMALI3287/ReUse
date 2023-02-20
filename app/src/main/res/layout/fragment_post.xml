@@ -40,7 +40,7 @@
         <com.smarteist.autoimageslider.SliderView
             android:id="@+id/photos"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="200dp"
             android:layout_below="@+id/upperlinear"
             android:layout_marginTop="20dp"
             app:sliderAnimationDuration="600"
@@ -126,7 +126,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_below="@id/locationTextView"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             />
         <EditText
             android:id="@+id/titleEditText"
@@ -144,17 +144,17 @@
             android:layout_height="wrap_content"
             android:text="Description"
             android:layout_below="@id/titleEditText"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:textSize="20sp"
             android:textStyle="bold"
             />
         <EditText
             android:id="@+id/descriptionEditText"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="110dp"
             android:layout_below="@id/descriptionText"
             android:layout_marginBottom="12dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="4dp"
             android:background="@drawable/et_style"
             android:gravity="top"
             android:padding="10dp"
