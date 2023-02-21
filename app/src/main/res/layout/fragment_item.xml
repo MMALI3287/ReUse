@@ -61,7 +61,7 @@
     <com.smarteist.autoimageslider.SliderView
         android:id="@+id/photos"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="350dp"
         android:layout_below="@+id/upperRelative"
         android:layout_marginTop="0dp"
         app:sliderAnimationDuration="600"
