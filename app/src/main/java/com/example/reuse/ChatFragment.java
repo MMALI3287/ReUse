@@ -24,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,7 +47,7 @@ public class ChatFragment extends Fragment {
         chatAdapter = new ChatAdapter(getContext(),chats);
         binding.recyclerView.setAdapter(chatAdapter);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        databaseRefChat.child(user.getUid()).addValueEventListener(new ValueEventListener() {
+        databaseRefChat.child(user.getUid()).orderByChild("timestamp").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 chats.clear();
@@ -54,6 +55,7 @@ public class ChatFragment extends Fragment {
                     Chats chat = dataSnapshot.getValue(Chats.class);
                     chats.add(chat);
                 }
+                Collections.reverse(chats);
                 chatAdapter.notifyDataSetChanged();
             }
 

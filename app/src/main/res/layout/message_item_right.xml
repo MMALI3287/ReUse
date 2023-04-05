@@ -20,10 +20,11 @@
         android:text="MESSSAGE HERE"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="6dp"
-        android:textAlignment="viewEnd"
+        android:textAlignment="viewStart"
         android:padding="6dp"
         android:background="@drawable/rounded_corner"
         android:layout_marginBottom="4dp"
-        android:textSize="16sp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
         />
 </RelativeLayout>

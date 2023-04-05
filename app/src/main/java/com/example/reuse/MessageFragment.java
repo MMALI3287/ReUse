@@ -128,7 +128,7 @@ public class MessageFragment extends Fragment {
                 map.put("message",binding.messageEditText.getText().toString());
                 map.put("senderId",user.getUid());
                 long time = System.currentTimeMillis();
-                map.put("time",time);
+                map.put("timestamp",time);
                 databaseRefChatMessages.child(chatId).push().setValue(map);
                 binding.messageEditText.setText("");
             }

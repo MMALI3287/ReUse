@@ -9,6 +9,9 @@ public class Posts {
     String postId;
     String time;
     String location;
+    String latitude;
+
+    String longitude;
     String category;
 
     public String getTime() {
@@ -34,8 +37,6 @@ public class Posts {
     public void setCategory(String category) {
         this.category = category;
     }
-
-
 
     public String getPostId() {
         return postId;
@@ -84,4 +85,11 @@ public class Posts {
     public void setTitle(String title) {
         this.title = title;
     }
+    public String getLatitude() {        return latitude;    }
+
+    public void setLatitude(String latitude) {        this.latitude = latitude;    }
+
+    public String getLongitude() {        return longitude;    }
+
+    public void setLongitude(String longitude) {        this.longitude = longitude;    }
 }

@@ -1,6 +1,7 @@
 package com.example.reuse;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -106,6 +107,7 @@ public class ItemFragment extends Fragment {
                 map.put("posterId",post.getUid());
                 map.put("messageSenderId",user.getUid());
                 map.put("postImageUrl",post.getImages().getImage1());
+                map.put("timestamp",System.currentTimeMillis());
                 databaseRefChat.child(user.getUid()).child(post.getPostId()+user.getUid()).updateChildren(map);
                 databaseRefChat.child(post.getUid()).child(post.getPostId()+user.getUid()).updateChildren(map);
                 FragmentManager fragmentManager = ((AppCompatActivity)getContext()).getSupportFragmentManager();
@@ -116,7 +118,15 @@ public class ItemFragment extends Fragment {
                         .commit();
             }
         });
-
+        binding.locationText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri gmmIntentUri = Uri.parse("google.navigation:q="+post.getLatitude()+","+post.getLongitude());
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
+            }
+        });
 
     }
 

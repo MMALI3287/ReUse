@@ -58,7 +58,8 @@ public class PostFragment extends Fragment {
     boolean imageSelected=false;
     StorageReference storageReference;
     private static final int REQUEST_LOCATION_SETTINGS = 23;
-
+    String latitude="";
+    String longitude="";
     AutoCompleteTextView autoCompleteTextView;
     ProgressDialog progressDialog;
     int progress = 0;
@@ -139,7 +140,7 @@ public class PostFragment extends Fragment {
                     return;
                 }
                 Log.d("HERE!1","Post button pressed");
-                uploadToFirebase(imageUris,title,description,location,category);
+                uploadToFirebase(imageUris,title,description,location,latitude,longitude,category);
             }
         });
         binding.editButton.setOnClickListener(new View.OnClickListener() {
@@ -211,12 +212,13 @@ public class PostFragment extends Fragment {
         }
         if (requestCode == REQUEST_LOCATION_SETTINGS && resultCode == RESULT_OK) {
             String finalPlaceName = data.getStringExtra("place_name");
-
+            latitude = data.getStringExtra("latitude");
+            longitude = data.getStringExtra("longitude");
             Toast.makeText(getActivity(), finalPlaceName, Toast.LENGTH_SHORT).show();
             binding.locationTextView.setText(finalPlaceName);
         }
     }
-    private void uploadToFirebase(ArrayList<Uri> imageUris,String title,String description,String location,String category) {
+    private void uploadToFirebase(ArrayList<Uri> imageUris,String title,String description,String location,String latitude,String longitude,String category) {
         int i=1;
         long postId = System.currentTimeMillis();
         progressDialog.show();
@@ -271,6 +273,8 @@ public class PostFragment extends Fragment {
         map.put("postId",String.valueOf(postId));
         map.put("time",String.valueOf(System.currentTimeMillis()));
         map.put("location",location);
+        map.put("latitude",latitude);
+        map.put("longitude",longitude);
         map.put("category",category);
         databaseRefPost.child(user.getUid().toString()).child(String.valueOf(postId)).updateChildren(map);
         databaseRefUnfilteredPost.child(String.valueOf(postId)).updateChildren(map);
