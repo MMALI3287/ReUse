@@ -23,4 +23,4 @@ Copyright (c) [2023]  [MD Musaddique Ali Erfan]
 [![GitHub forks](https://img.shields.io/github/forks/MMALI3287/ReUse)](https://github.com/MMALI3287/ReUse/network)
 [![GitHub stars](https://img.shields.io/github/stars/MMALI3287/ReUse)](https://github.com/MMALI3287/ReUse/stargazers)
 [![GitHub license](https://img.shields.io/github/license/MMALI3287/ReUse)](https://github.com/MMALI3287/ReUse/blob/master/LICENSE)
-[![Twitter](https://img.shields.io/twitter/url?style=social)](https://twitter.com/MusaddiqueMMALI/status/1524051753943322624)
+[![wakatime](https://wakatime.com/badge/user/55b3480f-fbb9-40ba-bd9a-c04c257f4e39/project/0622edf9-d4a7-4cfd-a429-46cebd75bef3.svg)](https://wakatime.com/badge/user/55b3480f-fbb9-40ba-bd9a-c04c257f4e39/project/0622edf9-d4a7-4cfd-a429-46cebd75bef3)
