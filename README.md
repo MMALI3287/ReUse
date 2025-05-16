@@ -3,7 +3,10 @@
 [![Android Build](https://img.shields.io/badge/Platform-Android-brightgreen.svg)](https://developer.android.com/)
 [![Firebase](https://img.shields.io/badge/Backend-Firebase-orange.svg)](https://firebase.google.com/)
 [![Java](https://img.shields.io/badge/Language-Java-red.svg)](https://www.java.com/)
-[![GitHub issues](https://img.shields.io/github/issues/MMALI3287/ReUse)](https://github.com/MMALI3287/ReUse/issues)
+[![Material Design](https://img.shields.io/badge/UI-Material%20Design-blue.svg)](https://material.io/design)
+[![Gradle](https://img.shields.io/badge/Build-Gradle-02303A.svg)](https://gradle.org/)
+[![Min SDK](https://img.shields.io/badge/Min%20SDK-21-yellow.svg)](https://developer.android.com/about/versions/android-5.0)
+[![Google Maps](https://img.shields.io/badge/Maps-Google%20Maps%20API-success.svg)](https://developers.google.com/maps)
 [![GitHub forks](https://img.shields.io/github/forks/MMALI3287/ReUse)](https://github.com/MMALI3287/ReUse/network)
 [![GitHub stars](https://img.shields.io/github/stars/MMALI3287/ReUse)](https://github.com/MMALI3287/ReUse/stargazers)
 [![GitHub license](https://img.shields.io/github/license/MMALI3287/ReUse)](https://github.com/MMALI3287/ReUse/blob/master/LICENSE)
@@ -127,6 +130,9 @@ We welcome contributions to ReUse! Here's how you can help:
 
 ## 📄 License
 
-[MIT License](LICENSE)
+This project is licensed under the [MIT License](LICENSE)
 
-Copyright (c) [2023] [MD Musaddique Ali Erfan]
+<p align="center">
+  <b>Copyright &copy; 2023<br>
+  MD Musaddique Ali Erfan</b>
+</p>
