@@ -104,6 +104,7 @@ ReUse is a sophisticated Android application designed to revolutionize the way w
    - Update Firebase dependencies if needed
 
 4. Build and run:
+
    ```bash
    ./gradlew build
    ```
@@ -126,5 +127,6 @@ We welcome contributions to ReUse! Here's how you can help:
 
 ## 📄 License
 
-MIT License  
+[MIT License](LICENSE)
+
 Copyright (c) [2023] [MD Musaddique Ali Erfan]
